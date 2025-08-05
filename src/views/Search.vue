@@ -200,7 +200,7 @@ export default {
   setup() {
     const route = useRoute()
     const router = useRouter()
-    
+
     const searchQuery = ref('')
     const currentSearchQuery = ref('')
     const searchResults = ref([])
@@ -258,22 +258,22 @@ export default {
         }
       } else {
         pages.push(1)
-        
+
         if (current > 4) {
           pages.push('...')
         }
-        
+
         const start = Math.max(2, current - 1)
         const end = Math.min(total - 1, current + 1)
-        
+
         for (let i = start; i <= end; i++) {
           pages.push(i)
         }
-        
+
         if (current < total - 3) {
           pages.push('...')
         }
-        
+
         pages.push(total)
       }
 
@@ -289,11 +289,11 @@ export default {
 
     const saveToRecentSearches = (query) => {
       if (!query.trim()) return
-      
+
       const searches = recentSearches.value.filter(s => s !== query)
       searches.unshift(query)
       recentSearches.value = searches.slice(0, 5)
-      
+
       localStorage.setItem('recentSearches', JSON.stringify(recentSearches.value))
     }
 
@@ -303,21 +303,21 @@ export default {
 
       loading.value = true
       showSuggestions.value = false
-      
+
       try {
         searchQuery.value = query
         searchResults.value = QuoteService.searchQuotes(query)
         currentPage.value = 1
-        
+
         // Update URL
         router.replace(`/search/${encodeURIComponent(query)}`)
-        
+
         // Save to recent searches
         saveToRecentSearches(query)
-        
+
         // Update page meta
         updatePageMeta(query, searchResults.value.length)
-        
+
       } catch (error) {
         console.error('Search error:', error)
       } finally {
@@ -354,7 +354,7 @@ export default {
 
     const updatePageMeta = (query, resultCount) => {
       document.title = `Search "${query}" - One Piece of Quote`
-      
+
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {
         metaDescription.setAttribute('content', `Found ${resultCount} One Piece quotes matching "${query}". Search through inspirational quotes from your favorite characters.`)
@@ -383,7 +383,7 @@ export default {
     onMounted(() => {
       loadRecentSearches()
       document.addEventListener('click', hideSuggestions)
-      
+
       // Load initial search if provided in URL
       const queryParam = route.params.query
       if (queryParam) {

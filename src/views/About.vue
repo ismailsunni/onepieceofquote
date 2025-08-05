@@ -6,7 +6,7 @@
         About One Piece of Quote
       </h1>
       <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-        A collection of inspirational quotes from the One Piece manga and anime series, 
+        A collection of inspirational quotes from the One Piece manga and anime series,
         designed to bring the wisdom and spirit of adventure to fans worldwide.
       </p>
     </div>
@@ -20,14 +20,14 @@
         </h2>
         <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            One Piece of Quote is dedicated to preserving and sharing the most memorable and 
-            inspirational quotes from Eiichiro Oda's masterpiece, One Piece. From Luffy's 
-            unwavering determination to Zoro's unbreakable loyalty, these quotes capture the 
+            One Piece of Quote is dedicated to preserving and sharing the most memorable and
+            inspirational quotes from Eiichiro Oda's masterpiece, One Piece. From Luffy's
+            unwavering determination to Zoro's unbreakable loyalty, these quotes capture the
             essence of what makes One Piece such a beloved series.
           </p>
           <p>
-            Our goal is to provide fans with easy access to these powerful words, whether 
-            you're looking for motivation, sharing with friends, or simply reminiscing about 
+            Our goal is to provide fans with easy access to these powerful words, whether
+            you're looking for motivation, sharing with friends, or simply reminiscing about
             your favorite moments from the series.
           </p>
         </div>
@@ -47,7 +47,7 @@
               <h3 class="font-semibold text-gray-900 dark:text-gray-100">XKCD-Style Navigation</h3>
             </div>
             <p class="text-gray-600 dark:text-gray-400">
-              Navigate through quotes with Previous, Next, and Random buttons, 
+              Navigate through quotes with Previous, Next, and Random buttons,
               just like your favorite webcomic.
             </p>
           </div>
@@ -60,7 +60,7 @@
               <h3 class="font-semibold text-gray-900 dark:text-gray-100">Powerful Search</h3>
             </div>
             <p class="text-gray-600 dark:text-gray-400">
-              Search across quotes, characters, and tags to find exactly 
+              Search across quotes, characters, and tags to find exactly
               what you're looking for.
             </p>
           </div>
@@ -73,7 +73,7 @@
               <h3 class="font-semibold text-gray-900 dark:text-gray-100">Organized by Tags</h3>
             </div>
             <p class="text-gray-600 dark:text-gray-400">
-              Quotes are categorized by themes like "dreams", "friendship", 
+              Quotes are categorized by themes like "dreams", "friendship",
               and "determination" for easy discovery.
             </p>
           </div>
@@ -86,7 +86,7 @@
               <h3 class="font-semibold text-gray-900 dark:text-gray-100">Easy Sharing</h3>
             </div>
             <p class="text-gray-600 dark:text-gray-400">
-              Share your favorite quotes on social media or copy them 
+              Share your favorite quotes on social media or copy them
               for personal use with one click.
             </p>
           </div>
@@ -100,8 +100,8 @@
         </h2>
         <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            All quotes are sourced from the official One Piece manga by Eiichiro Oda, 
-            published by Shueisha. We also reference the anime adaptation by Toei Animation 
+            All quotes are sourced from the official One Piece manga by Eiichiro Oda,
+            published by Shueisha. We also reference the anime adaptation by Toei Animation
             for context and accuracy.
           </p>
           <p>
@@ -115,7 +115,7 @@
             <li>Thematic tags for categorization</li>
           </ul>
           <p>
-            We strive for accuracy and respect for the original work. If you notice 
+            We strive for accuracy and respect for the original work. If you notice
             any errors or have suggestions for improvements, please let us know.
           </p>
         </div>
@@ -128,7 +128,7 @@
         </h2>
         <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            This website is built with modern web technologies to ensure a fast, 
+            This website is built with modern web technologies to ensure a fast,
             accessible experience across all devices:
           </p>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
@@ -159,8 +159,8 @@
         </h2>
         <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
-            Know a great One Piece quote that's missing from our collection? 
-            We'd love to hear from you! Community contributions help make this 
+            Know a great One Piece quote that's missing from our collection?
+            We'd love to hear from you! Community contributions help make this
             resource more comprehensive for all fans.
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
@@ -217,15 +217,15 @@
         </h2>
         <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
           <p>
-            <strong>Copyright:</strong> One Piece is created by Eiichiro Oda and published by Shueisha. 
+            <strong>Copyright:</strong> One Piece is created by Eiichiro Oda and published by Shueisha.
             All quotes and references are used under fair use for educational and entertainment purposes.
           </p>
           <p>
-            <strong>Disclaimer:</strong> This is an unofficial fan site and is not affiliated with 
+            <strong>Disclaimer:</strong> This is an unofficial fan site and is not affiliated with
             Eiichiro Oda, Shueisha, or Toei Animation. All rights belong to their respective owners.
           </p>
           <p>
-            <strong>License:</strong> The source code for this website is open source and available 
+            <strong>License:</strong> The source code for this website is open source and available
             under the MIT License. The quote data is compiled for fair use purposes.
           </p>
         </div>
@@ -243,7 +243,7 @@ export default {
     onMounted(() => {
       // Update page title
       document.title = 'About - One Piece of Quote'
-      
+
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {

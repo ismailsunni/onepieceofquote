@@ -3,7 +3,7 @@
     <!-- Main Quote Display -->
     <div class="text-center mb-8">
       <QuoteCard v-if="currentQuote" :quote="currentQuote" />
-      
+
       <!-- Loading State -->
       <div v-else class="quote-card max-w-quote mx-auto">
         <div class="animate-pulse">
@@ -176,7 +176,7 @@ export default {
     const updatePageMeta = (quote) => {
       // Update page title and meta description
       document.title = `"${quote.quote.substring(0, 50)}..." - ${quote.character} | One Piece of Quote`
-      
+
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {

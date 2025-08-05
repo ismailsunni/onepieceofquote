@@ -87,7 +87,7 @@ export default {
     const router = useRouter()
     const searchQuery = ref('')
     const showMobileMenu = ref(false)
-    
+
     const isDark = computed(() => {
       return document.documentElement.classList.contains('dark')
     })

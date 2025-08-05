@@ -177,7 +177,7 @@ The site is optimized for performance:
 ## 🔧 Browser Support
 
 - Chrome (latest 2 versions)
-- Firefox (latest 2 versions)  
+- Firefox (latest 2 versions)
 - Safari (latest 2 versions)
 - Edge (latest 2 versions)
 - Mobile browsers (iOS Safari, Chrome Mobile)

@@ -4,7 +4,7 @@ import QuoteService from '../src/services/QuoteService.js'
 const generateSitemap = () => {
   const baseUrl = 'https://ismailsunni.github.io/onepieceofquote'
   const currentDate = new Date().toISOString().split('T')[0]
-  
+
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->

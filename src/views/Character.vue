@@ -144,7 +144,7 @@ export default {
   setup() {
     const route = useRoute()
     const router = useRouter()
-    
+
     const character = ref(null)
     const quotes = ref([])
     const loading = ref(true)
@@ -166,22 +166,22 @@ export default {
         }
       } else {
         pages.push(1)
-        
+
         if (current > 4) {
           pages.push('...')
         }
-        
+
         const start = Math.max(2, current - 1)
         const end = Math.min(total - 1, current + 1)
-        
+
         for (let i = start; i <= end; i++) {
           pages.push(i)
         }
-        
+
         if (current < total - 3) {
           pages.push('...')
         }
-        
+
         pages.push(total)
       }
 
@@ -190,7 +190,7 @@ export default {
 
     const otherCharacters = computed(() => {
       if (!character.value) return []
-      
+
       return QuoteService.getPopularCharacters()
         .filter(char => char.slug !== character.value.slug)
         .slice(0, 8)
@@ -218,7 +218,7 @@ export default {
 
     const updatePageMeta = (characterData, quoteCount) => {
       document.title = `${characterData.name} Quotes - One Piece of Quote`
-      
+
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {
         metaDescription.setAttribute('content', `${quoteCount} inspirational quotes from ${characterData.name}, ${characterData.description}. Discover wisdom from One Piece.`)

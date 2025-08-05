@@ -3,7 +3,7 @@
     <!-- Quote Display -->
     <div class="text-center mb-8">
       <QuoteCard v-if="quote" :quote="quote" />
-      
+
       <!-- Loading State -->
       <div v-else-if="loading" class="quote-card max-w-quote mx-auto">
         <div class="animate-pulse">
@@ -108,7 +108,7 @@ export default {
 
     const relatedQuotes = computed(() => {
       if (!quote.value) return []
-      
+
       return QuoteService.getQuotesByCharacter(quote.value.character_slug)
         .filter(q => q.id !== quote.value.id)
         .slice(0, 4)
@@ -134,7 +134,7 @@ export default {
     const updatePageMeta = (quoteData) => {
       // Update page title
       document.title = `"${quoteData.quote.substring(0, 50)}..." - ${quoteData.character} | One Piece of Quote`
-      
+
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {

@@ -1,52 +1,52 @@
 [
-  {
-    "name": "freedom",
-    "quote_count": 2,
-    "description": "Quotes about freedom and liberty"
-  },
-  {
-    "name": "dreams",
-    "quote_count": 4,
-    "description": "Quotes about pursuing dreams and ambitions"
-  },
-  {
-    "name": "pirate-king",
-    "quote_count": 2,
-    "description": "Quotes related to becoming the Pirate King"
-  },
-  {
-    "name": "determination",
-    "quote_count": 2,
-    "description": "Quotes about determination and perseverance"
-  },
-  {
-    "name": "sacrifice",
-    "quote_count": 2,
-    "description": "Quotes about sacrifice and selflessness"
-  },
-  {
-    "name": "loyalty",
-    "quote_count": 1,
-    "description": "Quotes about loyalty and friendship"
-  },
-  {
-    "name": "strength",
-    "quote_count": 1,
-    "description": "Quotes about inner and physical strength"
-  },
-  {
-    "name": "life",
-    "quote_count": 2,
-    "description": "Quotes about the meaning and value of life"
-  },
-  {
-    "name": "emotion",
-    "quote_count": 2,
-    "description": "Quotes expressing deep emotions"
-  },
-  {
-    "name": "hope",
-    "quote_count": 2,
-    "description": "Quotes about hope and optimism"
-  }
+    {
+        "name": "freedom",
+        "quote_count": 2,
+        "description": "Quotes about freedom and liberty"
+    },
+    {
+        "name": "dreams",
+        "quote_count": 4,
+        "description": "Quotes about pursuing dreams and ambitions"
+    },
+    {
+        "name": "pirate-king",
+        "quote_count": 2,
+        "description": "Quotes related to becoming the Pirate King"
+    },
+    {
+        "name": "determination",
+        "quote_count": 2,
+        "description": "Quotes about determination and perseverance"
+    },
+    {
+        "name": "sacrifice",
+        "quote_count": 2,
+        "description": "Quotes about sacrifice and selflessness"
+    },
+    {
+        "name": "loyalty",
+        "quote_count": 1,
+        "description": "Quotes about loyalty and friendship"
+    },
+    {
+        "name": "strength",
+        "quote_count": 1,
+        "description": "Quotes about inner and physical strength"
+    },
+    {
+        "name": "life",
+        "quote_count": 2,
+        "description": "Quotes about the meaning and value of life"
+    },
+    {
+        "name": "emotion",
+        "quote_count": 2,
+        "description": "Quotes expressing deep emotions"
+    },
+    {
+        "name": "hope",
+        "quote_count": 2,
+        "description": "Quotes about hope and optimism"
+    }
 ]

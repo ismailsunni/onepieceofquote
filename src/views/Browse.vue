@@ -6,7 +6,7 @@
         Browse All Quotes
       </h1>
       <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        Explore all {{ totalQuotes }} inspirational quotes from One Piece characters. 
+        Explore all {{ totalQuotes }} inspirational quotes from One Piece characters.
         Use filters to find quotes by character or tag.
       </p>
     </div>
@@ -179,7 +179,7 @@ export default {
   setup() {
     const route = useRoute()
     const router = useRouter()
-    
+
     const allQuotes = ref([])
     const characters = ref([])
     const popularTags = ref([])
@@ -191,7 +191,7 @@ export default {
 
     const totalQuotes = computed(() => allQuotes.value.length)
 
-    const hasActiveFilters = computed(() => 
+    const hasActiveFilters = computed(() =>
       selectedCharacter.value || selectedTags.value.length > 0 || sortBy.value !== 'created_at_desc'
     )
 
@@ -205,7 +205,7 @@ export default {
 
       // Filter by tags
       if (selectedTags.value.length > 0) {
-        quotes = quotes.filter(quote => 
+        quotes = quotes.filter(quote =>
           selectedTags.value.some(tag => quote.tags.includes(tag))
         )
       }
@@ -245,22 +245,22 @@ export default {
         }
       } else {
         pages.push(1)
-        
+
         if (current > 4) {
           pages.push('...')
         }
-        
+
         const start = Math.max(2, current - 1)
         const end = Math.min(total - 1, current + 1)
-        
+
         for (let i = start; i <= end; i++) {
           pages.push(i)
         }
-        
+
         if (current < total - 3) {
           pages.push('...')
         }
-        
+
         pages.push(total)
       }
 
@@ -306,7 +306,7 @@ export default {
     const goToPage = (page) => {
       if (page >= 1 && page <= paginatedResult.value.totalPages) {
         currentPage.value = page
-        
+
         // Update URL
         const query = { ...route.query }
         if (page === 1) {
@@ -323,19 +323,19 @@ export default {
 
     const loadFiltersFromQuery = () => {
       const query = route.query
-      
+
       if (query.character) {
         selectedCharacter.value = query.character
       }
-      
+
       if (query.tags) {
         selectedTags.value = query.tags.split(',')
       }
-      
+
       if (query.sort) {
         sortBy.value = query.sort
       }
-      
+
       if (query.page) {
         currentPage.value = parseInt(query.page) || 1
       }
@@ -344,7 +344,7 @@ export default {
     onMounted(() => {
       loadData()
       loadFiltersFromQuery()
-      
+
       // Update page title
       document.title = 'Browse All Quotes - One Piece of Quote'
     })

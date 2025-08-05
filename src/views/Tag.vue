@@ -144,7 +144,7 @@ export default {
   setup() {
     const route = useRoute()
     const router = useRouter()
-    
+
     const tag = ref(null)
     const quotes = ref([])
     const loading = ref(true)
@@ -166,22 +166,22 @@ export default {
         }
       } else {
         pages.push(1)
-        
+
         if (current > 4) {
           pages.push('...')
         }
-        
+
         const start = Math.max(2, current - 1)
         const end = Math.min(total - 1, current + 1)
-        
+
         for (let i = start; i <= end; i++) {
           pages.push(i)
         }
-        
+
         if (current < total - 3) {
           pages.push('...')
         }
-        
+
         pages.push(total)
       }
 
@@ -190,7 +190,7 @@ export default {
 
     const relatedTags = computed(() => {
       if (!tag.value) return []
-      
+
       return QuoteService.getPopularTags()
         .filter(t => t.name !== tag.value.name)
         .slice(0, 8)
@@ -218,7 +218,7 @@ export default {
 
     const updatePageMeta = (tagData, quoteCount) => {
       document.title = `#${tagData.name} Quotes - One Piece of Quote`
-      
+
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {
         metaDescription.setAttribute('content', `${quoteCount} One Piece quotes about ${tagData.name}. ${tagData.description}`)

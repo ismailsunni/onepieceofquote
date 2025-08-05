@@ -2,7 +2,7 @@
   <div class="quote-card max-w-quote mx-auto">
     <!-- Character Name -->
     <div class="mb-4">
-      <router-link 
+      <router-link
         :to="`/character/${quote.character_slug}`"
         class="text-lg font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
       >
@@ -129,7 +129,7 @@ export default {
     const shareQuote = () => {
       const text = `"${props.quote.quote}" - ${props.quote.character}`
       const url = `${window.location.origin}/quote/${props.quote.id}`
-      
+
       if (navigator.share) {
         navigator.share({
           title: 'One Piece Quote',

@@ -38,7 +38,7 @@ class QuoteService {
   // Search quotes
   searchQuotes(query) {
     const searchTerm = query.toLowerCase()
-    return this.quotes.filter(quote => 
+    return this.quotes.filter(quote =>
       quote.quote.toLowerCase().includes(searchTerm) ||
       quote.character.toLowerCase().includes(searchTerm) ||
       quote.description.toLowerCase().includes(searchTerm) ||
@@ -70,7 +70,7 @@ class QuoteService {
   getNextQuote(currentId) {
     const currentIndex = this.quotes.findIndex(quote => quote.id === currentId)
     if (currentIndex === -1) return null
-    
+
     const nextIndex = (currentIndex + 1) % this.quotes.length
     return this.quotes[nextIndex]
   }
@@ -79,7 +79,7 @@ class QuoteService {
   getPreviousQuote(currentId) {
     const currentIndex = this.quotes.findIndex(quote => quote.id === currentId)
     if (currentIndex === -1) return null
-    
+
     const prevIndex = currentIndex === 0 ? this.quotes.length - 1 : currentIndex - 1
     return this.quotes[prevIndex]
   }
@@ -88,7 +88,7 @@ class QuoteService {
   paginateQuotes(quotes, page = 1, limit = 10) {
     const startIndex = (page - 1) * limit
     const endIndex = startIndex + limit
-    
+
     return {
       quotes: quotes.slice(startIndex, endIndex),
       currentPage: page,

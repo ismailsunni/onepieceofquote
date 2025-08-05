@@ -42,7 +42,8 @@ The One Piece Quotes website is ready for deployment! Here's everything you need
 1. Push to your GitHub repository
 2. Go to Settings > Pages
 3. Set source to "GitHub Actions"
-4. The workflow will automatically build and deploy
+4. Enable "Read and write permissions" in Settings > Actions > General > Workflow permissions
+5. The workflow will automatically build and deploy on the next push
 
 ### Option 2: Manual Deployment
 1. Run `npm run build`

@@ -3,7 +3,7 @@
     <div class="text-center py-16">
       <!-- 404 Graphic -->
       <div class="text-8xl mb-8">🏴‍☠️</div>
-      
+
       <!-- Error Message -->
       <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-4">
         404
@@ -11,14 +11,14 @@
       <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6">
         Page Not Found
       </h2>
-      
+
       <!-- Description -->
       <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-        Looks like you've sailed into uncharted waters! The page you're looking for 
-        seems to have gotten lost in the Grand Line. But don't worry, every great 
+        Looks like you've sailed into uncharted waters! The page you're looking for
+        seems to have gotten lost in the Grand Line. But don't worry, every great
         pirate knows that getting lost is just another adventure.
       </p>
-      
+
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <router-link to="/" class="btn btn-primary">
@@ -27,14 +27,14 @@
           </svg>
           Return Home
         </router-link>
-        
+
         <router-link to="/browse" class="btn btn-secondary">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14-7l-7 7-7-7m14 18l-7-7-7 7"></path>
           </svg>
           Browse Quotes
         </router-link>
-        
+
         <button @click="getRandomQuote" class="btn btn-outline">
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0V9a8 8 0 1115.356 2m-15.356 0H4v5.582m0 0a8.003 8.003 0 0015.356-2M19.418 15H20v-5.582"></path>
@@ -42,7 +42,7 @@
           Random Quote
         </button>
       </div>
-      
+
       <!-- Helpful Links -->
       <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
@@ -63,7 +63,7 @@
               </router-link>
             </div>
           </div>
-          
+
           <!-- Popular Tags -->
           <div class="text-center">
             <h4 class="font-medium text-gray-900 dark:text-gray-100 mb-3">Popular Tags</h4>
@@ -78,7 +78,7 @@
               </router-link>
             </div>
           </div>
-          
+
           <!-- Quick Actions -->
           <div class="text-center">
             <h4 class="font-medium text-gray-900 dark:text-gray-100 mb-3">Quick Actions</h4>
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- One Piece Quote -->
       <div v-if="inspirationalQuote" class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
@@ -143,10 +143,10 @@ export default {
 
     onMounted(() => {
       loadData()
-      
+
       // Update page title
       document.title = 'Page Not Found - One Piece of Quote'
-      
+
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')
       if (metaDescription) {
