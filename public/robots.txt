@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow unnecessary paths
+Disallow: /src/
+Disallow: /_nuxt/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://ismailsunni.github.io/onepieceofquote/sitemap.xml
