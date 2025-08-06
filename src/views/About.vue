@@ -165,7 +165,7 @@
           </p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://forms.google.com/submit-quote"
+              :href="SUBMISSION_FORM_URL"
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary inline-flex items-center justify-center"
@@ -236,6 +236,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
+import { SUBMISSION_FORM_URL } from '@/utils/constants.js'
 
 onMounted(() => {
   // Update page title

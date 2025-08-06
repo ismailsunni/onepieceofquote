@@ -26,7 +26,7 @@
               </router-link>
             </li>
             <li>
-              <a href="https://forms.google.com/submit-quote" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+              <a :href="SUBMISSION_FORM_URL" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
                 Submit a Quote
               </a>
             </li>
@@ -79,5 +79,6 @@
 </template>
 
 <script setup>
+import { SUBMISSION_FORM_URL } from '@/utils/constants.js'
 // No reactive logic needed for Footer component
 </script>

@@ -89,7 +89,7 @@
               <router-link to="/about" class="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                 About This Site
               </router-link>
-              <a href="https://forms.google.com/submit-quote" target="_blank" rel="noopener noreferrer" class="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+              <a :href="SUBMISSION_FORM_URL" target="_blank" rel="noopener noreferrer" class="block text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
                 Submit a Quote
               </a>
             </div>
@@ -119,6 +119,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import QuoteService from '@/services/QuoteService.js'
+import { SUBMISSION_FORM_URL } from '@/utils/constants.js'
 
 const router = useRouter()
 const popularCharacters = ref([])
