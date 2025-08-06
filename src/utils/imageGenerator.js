@@ -2,7 +2,7 @@
  * Generate an image from a quote and copy it to clipboard
  */
 
-export async function generateQuoteImage(quote) {
+export async function generateQuoteImage(quote, permalink = null) {
   // Create a canvas element
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
@@ -84,6 +84,13 @@ export async function generateQuoteImage(quote) {
   ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'
   ctx.fillText(`Chapter ${quote.chapter}`, width / 2, height * 0.82)
 
+  // Draw permalink if provided
+  if (permalink) {
+    ctx.font = '28px Arial, sans-serif'
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'
+    ctx.fillText(permalink, width / 2, height * 0.87)
+  }
+
   // Draw watermark
   ctx.font = '24px Arial, sans-serif'
   ctx.fillStyle = 'rgba(255, 255, 255, 0.6)'
@@ -92,9 +99,9 @@ export async function generateQuoteImage(quote) {
   return canvas
 }
 
-export async function copyQuoteAsImage(quote) {
+export async function copyQuoteAsImage(quote, permalink = null) {
   try {
-    const canvas = await generateQuoteImage(quote)
+    const canvas = await generateQuoteImage(quote, permalink)
 
     // Convert canvas to blob
     return new Promise((resolve, reject) => {
@@ -129,9 +136,9 @@ export async function copyQuoteAsImage(quote) {
   }
 }
 
-export async function downloadQuoteImage(quote) {
+export async function downloadQuoteImage(quote, permalink = null) {
   try {
-    const canvas = await generateQuoteImage(quote)
+    const canvas = await generateQuoteImage(quote, permalink)
 
     // Convert canvas to blob and download
     canvas.toBlob((blob) => {
