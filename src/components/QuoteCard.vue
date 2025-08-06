@@ -83,73 +83,61 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-export default {
-  name: 'QuoteCard',
-  props: {
-    quote: {
-      type: Object,
-      required: true
-    }
-  },
-  setup(props) {
-    const route = useRoute()
-    const copied = ref(false)
-    const linkCopied = ref(false)
+const props = defineProps({
+  quote: {
+    type: Object,
+    required: true
+  }
+})
 
-    const copyQuote = async () => {
-      const text = `"${props.quote.quote}" - ${props.quote.character}`
-      try {
-        await navigator.clipboard.writeText(text)
-        copied.value = true
-        setTimeout(() => {
-          copied.value = false
-        }, 2000)
-      } catch (err) {
-        console.error('Failed to copy quote:', err)
-      }
-    }
+const route = useRoute()
+const copied = ref(false)
+const linkCopied = ref(false)
 
-    const copyLink = async () => {
-      const url = `${window.location.origin}/quote/${props.quote.id}`
-      try {
-        await navigator.clipboard.writeText(url)
-        linkCopied.value = true
-        setTimeout(() => {
-          linkCopied.value = false
-        }, 2000)
-      } catch (err) {
-        console.error('Failed to copy link:', err)
-      }
-    }
+const copyQuote = async () => {
+  const text = `"${props.quote.quote}" - ${props.quote.character}`
+  try {
+    await navigator.clipboard.writeText(text)
+    copied.value = true
+    setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy quote:', err)
+  }
+}
 
-    const shareQuote = () => {
-      const text = `"${props.quote.quote}" - ${props.quote.character}`
-      const url = `${window.location.origin}/quote/${props.quote.id}`
+const copyLink = async () => {
+  const url = `${window.location.origin}/quote/${props.quote.id}`
+  try {
+    await navigator.clipboard.writeText(url)
+    linkCopied.value = true
+    setTimeout(() => {
+      linkCopied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy link:', err)
+  }
+}
 
-      if (navigator.share) {
-        navigator.share({
-          title: 'One Piece Quote',
-          text: text,
-          url: url
-        })
-      } else {
-        // Fallback to Twitter share
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`
-        window.open(twitterUrl, '_blank', 'noopener,noreferrer')
-      }
-    }
+const shareQuote = () => {
+  const text = `"${props.quote.quote}" - ${props.quote.character}`
+  const url = `${window.location.origin}/quote/${props.quote.id}`
 
-    return {
-      copied,
-      linkCopied,
-      copyQuote,
-      copyLink,
-      shareQuote
-    }
+  if (navigator.share) {
+    navigator.share({
+      title: 'One Piece Quote',
+      text: text,
+      url: url
+    })
+  } else {
+    // Fallback to Twitter share
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`
+    window.open(twitterUrl, '_blank', 'noopener,noreferrer')
   }
 }
 </script>

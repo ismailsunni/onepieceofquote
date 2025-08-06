@@ -77,50 +77,35 @@
   </header>
 </template>
 
-<script>
+<script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
-export default {
-  name: 'Header',
-  setup() {
-    const router = useRouter()
-    const searchQuery = ref('')
-    const showMobileMenu = ref(false)
+const router = useRouter()
+const searchQuery = ref('')
+const showMobileMenu = ref(false)
 
-    const isDark = computed(() => {
-      return document.documentElement.classList.contains('dark')
-    })
+const isDark = computed(() => {
+  return document.documentElement.classList.contains('dark')
+})
 
-    const performSearch = () => {
-      if (searchQuery.value.trim()) {
-        router.push(`/search/${encodeURIComponent(searchQuery.value.trim())}`)
-        searchQuery.value = ''
-        closeMobileMenu()
-      }
-    }
-
-    const toggleTheme = () => {
-      window.dispatchEvent(new Event('theme-toggle'))
-    }
-
-    const toggleMobileMenu = () => {
-      showMobileMenu.value = !showMobileMenu.value
-    }
-
-    const closeMobileMenu = () => {
-      showMobileMenu.value = false
-    }
-
-    return {
-      searchQuery,
-      showMobileMenu,
-      isDark,
-      performSearch,
-      toggleTheme,
-      toggleMobileMenu,
-      closeMobileMenu
-    }
+const performSearch = () => {
+  if (searchQuery.value.trim()) {
+    router.push(`/search/${encodeURIComponent(searchQuery.value.trim())}`)
+    searchQuery.value = ''
+    closeMobileMenu()
   }
+}
+
+const toggleTheme = () => {
+  window.dispatchEvent(new Event('theme-toggle'))
+}
+
+const toggleMobileMenu = () => {
+  showMobileMenu.value = !showMobileMenu.value
+}
+
+const closeMobileMenu = () => {
+  showMobileMenu.value = false
 }
 </script>

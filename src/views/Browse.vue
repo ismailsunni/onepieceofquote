@@ -165,208 +165,181 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import QuoteCard from '@/components/QuoteCard.vue'
 import QuoteService from '@/services/QuoteService.js'
 
-export default {
-  name: 'Browse',
-  components: {
-    QuoteCard
-  },
-  setup() {
-    const route = useRoute()
-    const router = useRouter()
+const route = useRoute()
+const router = useRouter()
 
-    const allQuotes = ref([])
-    const characters = ref([])
-    const popularTags = ref([])
-    const selectedCharacter = ref('')
-    const selectedTags = ref([])
-    const sortBy = ref('created_at_desc')
-    const currentPage = ref(1)
-    const quotesPerPage = 12
+const allQuotes = ref([])
+const characters = ref([])
+const popularTags = ref([])
+const selectedCharacter = ref('')
+const selectedTags = ref([])
+const sortBy = ref('created_at_desc')
+const currentPage = ref(1)
+const quotesPerPage = 12
 
-    const totalQuotes = computed(() => allQuotes.value.length)
+const totalQuotes = computed(() => allQuotes.value.length)
 
-    const hasActiveFilters = computed(() =>
-      selectedCharacter.value || selectedTags.value.length > 0 || sortBy.value !== 'created_at_desc'
+const hasActiveFilters = computed(() =>
+  selectedCharacter.value || selectedTags.value.length > 0 || sortBy.value !== 'created_at_desc'
+)
+
+const filteredQuotes = computed(() => {
+  let quotes = [...allQuotes.value]
+
+  // Filter by character
+  if (selectedCharacter.value) {
+    quotes = quotes.filter(quote => quote.character_slug === selectedCharacter.value)
+  }
+
+  // Filter by tags
+  if (selectedTags.value.length > 0) {
+    quotes = quotes.filter(quote =>
+      selectedTags.value.some(tag => quote.tags.includes(tag))
     )
+  }
 
-    const filteredQuotes = computed(() => {
-      let quotes = [...allQuotes.value]
+  // Sort quotes
+  switch (sortBy.value) {
+    case 'created_at_asc':
+      quotes.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
+      break
+    case 'character':
+      quotes.sort((a, b) => a.character.localeCompare(b.character))
+      break
+    case 'chapter':
+      quotes.sort((a, b) => a.chapter - b.chapter)
+      break
+    case 'created_at_desc':
+    default:
+      quotes.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+      break
+  }
 
-      // Filter by character
-      if (selectedCharacter.value) {
-        quotes = quotes.filter(quote => quote.character_slug === selectedCharacter.value)
-      }
+  return quotes
+})
 
-      // Filter by tags
-      if (selectedTags.value.length > 0) {
-        quotes = quotes.filter(quote =>
-          selectedTags.value.some(tag => quote.tags.includes(tag))
-        )
-      }
+const paginatedResult = computed(() => {
+  return QuoteService.paginateQuotes(filteredQuotes.value, currentPage.value, quotesPerPage)
+})
 
-      // Sort quotes
-      switch (sortBy.value) {
-        case 'created_at_asc':
-          quotes.sort((a, b) => new Date(a.created_at) - new Date(b.created_at))
-          break
-        case 'character':
-          quotes.sort((a, b) => a.character.localeCompare(b.character))
-          break
-        case 'chapter':
-          quotes.sort((a, b) => a.chapter - b.chapter)
-          break
-        case 'created_at_desc':
-        default:
-          quotes.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
-          break
-      }
+const visiblePages = computed(() => {
+  const total = paginatedResult.value.totalPages
+  const current = paginatedResult.value.currentPage
+  const pages = []
 
-      return quotes
-    })
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) {
+      pages.push(i)
+    }
+  } else {
+    pages.push(1)
 
-    const paginatedResult = computed(() => {
-      return QuoteService.paginateQuotes(filteredQuotes.value, currentPage.value, quotesPerPage)
-    })
-
-    const visiblePages = computed(() => {
-      const total = paginatedResult.value.totalPages
-      const current = paginatedResult.value.currentPage
-      const pages = []
-
-      if (total <= 7) {
-        for (let i = 1; i <= total; i++) {
-          pages.push(i)
-        }
-      } else {
-        pages.push(1)
-
-        if (current > 4) {
-          pages.push('...')
-        }
-
-        const start = Math.max(2, current - 1)
-        const end = Math.min(total - 1, current + 1)
-
-        for (let i = start; i <= end; i++) {
-          pages.push(i)
-        }
-
-        if (current < total - 3) {
-          pages.push('...')
-        }
-
-        pages.push(total)
-      }
-
-      return pages.filter(page => page !== '...' || pages.indexOf(page) === pages.lastIndexOf(page))
-    })
-
-    const loadData = () => {
-      allQuotes.value = QuoteService.getAllQuotes()
-      characters.value = QuoteService.getPopularCharacters()
-      popularTags.value = QuoteService.getPopularTags()
+    if (current > 4) {
+      pages.push('...')
     }
 
-    const toggleTag = (tagName) => {
-      const index = selectedTags.value.indexOf(tagName)
-      if (index === -1) {
-        selectedTags.value.push(tagName)
-      } else {
-        selectedTags.value.splice(index, 1)
-      }
-      applyFilters()
+    const start = Math.max(2, current - 1)
+    const end = Math.min(total - 1, current + 1)
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i)
     }
 
-    const applyFilters = () => {
-      currentPage.value = 1
-      // Update URL to reflect current filters
-      const query = {}
-      if (selectedCharacter.value) query.character = selectedCharacter.value
-      if (selectedTags.value.length > 0) query.tags = selectedTags.value.join(',')
-      if (sortBy.value !== 'created_at_desc') query.sort = sortBy.value
-      if (currentPage.value !== 1) query.page = currentPage.value
-
-      router.replace({ query })
+    if (current < total - 3) {
+      pages.push('...')
     }
 
-    const clearFilters = () => {
-      selectedCharacter.value = ''
-      selectedTags.value = []
-      sortBy.value = 'created_at_desc'
-      currentPage.value = 1
-      router.replace({ query: {} })
+    pages.push(total)
+  }
+
+  return pages.filter(page => page !== '...' || pages.indexOf(page) === pages.lastIndexOf(page))
+})
+
+const loadData = () => {
+  allQuotes.value = QuoteService.getAllQuotes()
+  characters.value = QuoteService.getPopularCharacters()
+  popularTags.value = QuoteService.getPopularTags()
+}
+
+const toggleTag = (tagName) => {
+  const index = selectedTags.value.indexOf(tagName)
+  if (index === -1) {
+    selectedTags.value.push(tagName)
+  } else {
+    selectedTags.value.splice(index, 1)
+  }
+  applyFilters()
+}
+
+const applyFilters = () => {
+  currentPage.value = 1
+  // Update URL to reflect current filters
+  const query = {}
+  if (selectedCharacter.value) query.character = selectedCharacter.value
+  if (selectedTags.value.length > 0) query.tags = selectedTags.value.join(',')
+  if (sortBy.value !== 'created_at_desc') query.sort = sortBy.value
+  if (currentPage.value !== 1) query.page = currentPage.value
+
+  router.replace({ query })
+}
+
+const clearFilters = () => {
+  selectedCharacter.value = ''
+  selectedTags.value = []
+  sortBy.value = 'created_at_desc'
+  currentPage.value = 1
+  router.replace({ query: {} })
+}
+
+const goToPage = (page) => {
+  if (page >= 1 && page <= paginatedResult.value.totalPages) {
+    currentPage.value = page
+
+    // Update URL
+    const query = { ...route.query }
+    if (page === 1) {
+      delete query.page
+    } else {
+      query.page = page
     }
+    router.replace({ query })
 
-    const goToPage = (page) => {
-      if (page >= 1 && page <= paginatedResult.value.totalPages) {
-        currentPage.value = page
-
-        // Update URL
-        const query = { ...route.query }
-        if (page === 1) {
-          delete query.page
-        } else {
-          query.page = page
-        }
-        router.replace({ query })
-
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }
-    }
-
-    const loadFiltersFromQuery = () => {
-      const query = route.query
-
-      if (query.character) {
-        selectedCharacter.value = query.character
-      }
-
-      if (query.tags) {
-        selectedTags.value = query.tags.split(',')
-      }
-
-      if (query.sort) {
-        sortBy.value = query.sort
-      }
-
-      if (query.page) {
-        currentPage.value = parseInt(query.page) || 1
-      }
-    }
-
-    onMounted(() => {
-      loadData()
-      loadFiltersFromQuery()
-
-      // Update page title
-      document.title = 'Browse All Quotes - One Piece of Quote'
-    })
-
-    return {
-      allQuotes,
-      characters,
-      popularTags,
-      selectedCharacter,
-      selectedTags,
-      sortBy,
-      currentPage,
-      totalQuotes,
-      hasActiveFilters,
-      filteredQuotes,
-      paginatedResult,
-      visiblePages,
-      toggleTag,
-      applyFilters,
-      clearFilters,
-      goToPage
-    }
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
+
+const loadFiltersFromQuery = () => {
+  const query = route.query
+
+  if (query.character) {
+    selectedCharacter.value = query.character
+  }
+
+  if (query.tags) {
+    selectedTags.value = query.tags.split(',')
+  }
+
+  if (query.sort) {
+    sortBy.value = query.sort
+  }
+
+  if (query.page) {
+    currentPage.value = parseInt(query.page) || 1
+  }
+}
+
+onMounted(() => {
+  loadData()
+  loadFiltersFromQuery()
+
+  // Update page title
+  document.title = 'Browse All Quotes - One Piece of Quote'
+})
 </script>

@@ -115,51 +115,39 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import QuoteService from '@/services/QuoteService.js'
 
-export default {
-  name: 'NotFound',
-  setup() {
-    const router = useRouter()
-    const popularCharacters = ref([])
-    const popularTags = ref([])
-    const inspirationalQuote = ref(null)
+const router = useRouter()
+const popularCharacters = ref([])
+const popularTags = ref([])
+const inspirationalQuote = ref(null)
 
-    const loadData = () => {
-      popularCharacters.value = QuoteService.getPopularCharacters(5)
-      popularTags.value = QuoteService.getPopularTags(6)
-      inspirationalQuote.value = QuoteService.getRandomQuote()
-    }
+const loadData = () => {
+  popularCharacters.value = QuoteService.getPopularCharacters(5)
+  popularTags.value = QuoteService.getPopularTags(6)
+  inspirationalQuote.value = QuoteService.getRandomQuote()
+}
 
-    const getRandomQuote = () => {
-      const randomQuote = QuoteService.getRandomQuote()
-      if (randomQuote) {
-        router.push(`/quote/${randomQuote.id}`)
-      }
-    }
-
-    onMounted(() => {
-      loadData()
-
-      // Update page title
-      document.title = 'Page Not Found - One Piece of Quote'
-
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', 'Oops! The page you\'re looking for doesn\'t exist. Navigate back to discover inspirational One Piece quotes.')
-      }
-    })
-
-    return {
-      popularCharacters,
-      popularTags,
-      inspirationalQuote,
-      getRandomQuote
-    }
+const getRandomQuote = () => {
+  const randomQuote = QuoteService.getRandomQuote()
+  if (randomQuote) {
+    router.push(`/quote/${randomQuote.id}`)
   }
 }
+
+onMounted(() => {
+  loadData()
+
+  // Update page title
+  document.title = 'Page Not Found - One Piece of Quote'
+
+  // Update meta description
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', 'Oops! The page you\'re looking for doesn\'t exist. Navigate back to discover inspirational One Piece quotes.')
+  }
+})
 </script>

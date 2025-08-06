@@ -234,24 +234,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { onMounted } from 'vue'
 
-export default {
-  name: 'About',
-  setup() {
-    onMounted(() => {
-      // Update page title
-      document.title = 'About - One Piece of Quote'
+onMounted(() => {
+  // Update page title
+  document.title = 'About - One Piece of Quote'
 
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', 'Learn about One Piece of Quote, our mission to share inspirational quotes from the One Piece manga and anime series.')
-      }
-    })
-
-    return {}
+  // Update meta description
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', 'Learn about One Piece of Quote, our mission to share inspirational quotes from the One Piece manga and anime series.')
   }
-}
+})
 </script>

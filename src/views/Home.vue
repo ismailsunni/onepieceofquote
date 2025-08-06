@@ -112,102 +112,84 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import QuoteCard from '@/components/QuoteCard.vue'
 import QuoteService from '@/services/QuoteService.js'
 
-export default {
-  name: 'Home',
-  components: {
-    QuoteCard
-  },
-  setup() {
-    const router = useRouter()
-    const route = useRoute()
-    const currentQuote = ref(null)
-    const popularCharacters = ref([])
-    const popularTags = ref([])
+const router = useRouter()
+const route = useRoute()
+const currentQuote = ref(null)
+const popularCharacters = ref([])
+const popularTags = ref([])
 
-    const totalQuotes = computed(() => QuoteService.getAllQuotes().length)
+const totalQuotes = computed(() => QuoteService.getAllQuotes().length)
 
-    const loadInitialData = () => {
-      // Load popular characters and tags
-      popularCharacters.value = QuoteService.getPopularCharacters(5)
-      popularTags.value = QuoteService.getPopularTags(8)
+const loadInitialData = () => {
+  // Load popular characters and tags
+  popularCharacters.value = QuoteService.getPopularCharacters(5)
+  popularTags.value = QuoteService.getPopularTags(8)
 
-      // Show random quote initially
-      showRandomQuote()
-    }
+  // Show random quote initially
+  showRandomQuote()
+}
 
-    const showRandomQuote = () => {
-      const quote = QuoteService.getRandomQuote()
-      if (quote) {
-        currentQuote.value = quote
-        // Update URL without navigation
-        router.replace(`/quote/${quote.id}`)
-        updatePageMeta(quote)
-      }
-    }
+const showRandomQuote = () => {
+  const quote = QuoteService.getRandomQuote()
+  if (quote) {
+    currentQuote.value = quote
+    // Update URL without navigation
+    router.replace(`/quote/${quote.id}`)
+    updatePageMeta(quote)
+  }
+}
 
-    const showNextQuote = () => {
-      if (currentQuote.value) {
-        const nextQuote = QuoteService.getNextQuote(currentQuote.value.id)
-        if (nextQuote) {
-          currentQuote.value = nextQuote
-          router.replace(`/quote/${nextQuote.id}`)
-          updatePageMeta(nextQuote)
-        }
-      }
-    }
-
-    const showPreviousQuote = () => {
-      if (currentQuote.value) {
-        const prevQuote = QuoteService.getPreviousQuote(currentQuote.value.id)
-        if (prevQuote) {
-          currentQuote.value = prevQuote
-          router.replace(`/quote/${prevQuote.id}`)
-          updatePageMeta(prevQuote)
-        }
-      }
-    }
-
-    const updatePageMeta = (quote) => {
-      // Update page title and meta description
-      document.title = `"${quote.quote.substring(0, 50)}..." - ${quote.character} | One Piece of Quote`
-
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', `${quote.quote} - ${quote.character}`)
-      }
-
-      // Update Open Graph tags
-      const ogTitle = document.querySelector('meta[property="og:title"]')
-      if (ogTitle) {
-        ogTitle.setAttribute('content', `${quote.character}: "${quote.quote.substring(0, 50)}..."`)
-      }
-
-      const ogDescription = document.querySelector('meta[property="og:description"]')
-      if (ogDescription) {
-        ogDescription.setAttribute('content', `${quote.quote}`)
-      }
-    }
-
-    onMounted(() => {
-      loadInitialData()
-    })
-
-    return {
-      currentQuote,
-      popularCharacters,
-      popularTags,
-      totalQuotes,
-      showRandomQuote,
-      showNextQuote,
-      showPreviousQuote
+const showNextQuote = () => {
+  if (currentQuote.value) {
+    const nextQuote = QuoteService.getNextQuote(currentQuote.value.id)
+    if (nextQuote) {
+      currentQuote.value = nextQuote
+      router.replace(`/quote/${nextQuote.id}`)
+      updatePageMeta(nextQuote)
     }
   }
 }
+
+const showPreviousQuote = () => {
+  if (currentQuote.value) {
+    const prevQuote = QuoteService.getPreviousQuote(currentQuote.value.id)
+    if (prevQuote) {
+      currentQuote.value = prevQuote
+      router.replace(`/quote/${prevQuote.id}`)
+      updatePageMeta(prevQuote)
+    }
+  }
+}
+
+const updatePageMeta = (quote) => {
+  // Update page title and meta description
+  document.title = `"${quote.quote.substring(0, 50)}..." - ${quote.character} | One Piece of Quote`
+
+  // Update meta description
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', `${quote.quote} - ${quote.character}`)
+  }
+
+  // Update Open Graph tags
+  const ogTitle = document.querySelector('meta[property="og:title"]')
+  if (ogTitle) {
+    ogTitle.setAttribute('content', `${quote.character}: "${quote.quote.substring(0, 50)}..."`)
+  }
+
+  const ogDescription = document.querySelector('meta[property="og:description"]')
+  if (ogDescription) {
+    ogDescription.setAttribute('content', `${quote.quote}`)
+  }
+}
+
+onMounted(() => {
+  loadInitialData()
+})
 </script>

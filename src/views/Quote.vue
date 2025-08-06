@@ -89,129 +89,112 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import QuoteCard from '@/components/QuoteCard.vue'
 import QuoteService from '@/services/QuoteService.js'
 
-export default {
-  name: 'Quote',
-  components: {
-    QuoteCard
-  },
-  setup() {
-    const router = useRouter()
-    const route = useRoute()
-    const quote = ref(null)
-    const loading = ref(true)
+const router = useRouter()
+const route = useRoute()
+const quote = ref(null)
+const loading = ref(true)
 
-    const relatedQuotes = computed(() => {
-      if (!quote.value) return []
+const relatedQuotes = computed(() => {
+  if (!quote.value) return []
 
-      return QuoteService.getQuotesByCharacter(quote.value.character_slug)
-        .filter(q => q.id !== quote.value.id)
-        .slice(0, 4)
-    })
+  return QuoteService.getQuotesByCharacter(quote.value.character_slug)
+    .filter(q => q.id !== quote.value.id)
+    .slice(0, 4)
+})
 
-    const loadQuote = async (id) => {
-      loading.value = true
-      quote.value = null
+const loadQuote = async (id) => {
+  loading.value = true
+  quote.value = null
 
-      try {
-        const foundQuote = QuoteService.getQuoteById(id)
-        if (foundQuote) {
-          quote.value = foundQuote
-          updatePageMeta(foundQuote)
-        }
-      } catch (error) {
-        console.error('Error loading quote:', error)
-      } finally {
-        loading.value = false
-      }
+  try {
+    const foundQuote = QuoteService.getQuoteById(id)
+    if (foundQuote) {
+      quote.value = foundQuote
+      updatePageMeta(foundQuote)
     }
+  } catch (error) {
+    console.error('Error loading quote:', error)
+  } finally {
+    loading.value = false
+  }
+}
 
-    const updatePageMeta = (quoteData) => {
-      // Update page title
-      document.title = `"${quoteData.quote.substring(0, 50)}..." - ${quoteData.character} | One Piece of Quote`
+const updatePageMeta = (quoteData) => {
+  // Update page title
+  document.title = `"${quoteData.quote.substring(0, 50)}..." - ${quoteData.character} | One Piece of Quote`
 
-      // Update meta description
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', `${quoteData.quote} - ${quoteData.character}`)
-      }
+  // Update meta description
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', `${quoteData.quote} - ${quoteData.character}`)
+  }
 
-      // Update Open Graph tags
-      const ogTitle = document.querySelector('meta[property="og:title"]')
-      if (ogTitle) {
-        ogTitle.setAttribute('content', `${quoteData.character}: "${quoteData.quote.substring(0, 50)}..."`)
-      }
+  // Update Open Graph tags
+  const ogTitle = document.querySelector('meta[property="og:title"]')
+  if (ogTitle) {
+    ogTitle.setAttribute('content', `${quoteData.character}: "${quoteData.quote.substring(0, 50)}..."`)
+  }
 
-      const ogDescription = document.querySelector('meta[property="og:description"]')
-      if (ogDescription) {
-        ogDescription.setAttribute('content', quoteData.quote)
-      }
+  const ogDescription = document.querySelector('meta[property="og:description"]')
+  if (ogDescription) {
+    ogDescription.setAttribute('content', quoteData.quote)
+  }
 
-      // Update canonical URL
-      const canonicalLink = document.querySelector('link[rel="canonical"]')
-      if (canonicalLink) {
-        canonicalLink.setAttribute('href', `${window.location.origin}/quote/${quoteData.id}`)
-      }
-    }
+  // Update canonical URL
+  const canonicalLink = document.querySelector('link[rel="canonical"]')
+  if (canonicalLink) {
+    canonicalLink.setAttribute('href', `${window.location.origin}/quote/${quoteData.id}`)
+  }
+}
 
-    const showRandomQuote = () => {
-      const randomQuote = QuoteService.getRandomQuote()
-      if (randomQuote) {
-        router.push(`/quote/${randomQuote.id}`)
-      }
-    }
+const showRandomQuote = () => {
+  const randomQuote = QuoteService.getRandomQuote()
+  if (randomQuote) {
+    router.push(`/quote/${randomQuote.id}`)
+  }
+}
 
-    const showNextQuote = () => {
-      if (quote.value) {
-        const nextQuote = QuoteService.getNextQuote(quote.value.id)
-        if (nextQuote) {
-          router.push(`/quote/${nextQuote.id}`)
-        }
-      }
-    }
-
-    const showPreviousQuote = () => {
-      if (quote.value) {
-        const prevQuote = QuoteService.getPreviousQuote(quote.value.id)
-        if (prevQuote) {
-          router.push(`/quote/${prevQuote.id}`)
-        }
-      }
-    }
-
-    // Watch for route changes
-    watch(
-      () => route.params.id,
-      (newId) => {
-        if (newId) {
-          loadQuote(newId)
-        }
-      },
-      { immediate: true }
-    )
-
-    onMounted(() => {
-      const quoteId = route.params.id
-      if (quoteId) {
-        loadQuote(quoteId)
-      }
-    })
-
-    return {
-      quote,
-      loading,
-      relatedQuotes,
-      showRandomQuote,
-      showNextQuote,
-      showPreviousQuote
+const showNextQuote = () => {
+  if (quote.value) {
+    const nextQuote = QuoteService.getNextQuote(quote.value.id)
+    if (nextQuote) {
+      router.push(`/quote/${nextQuote.id}`)
     }
   }
 }
+
+const showPreviousQuote = () => {
+  if (quote.value) {
+    const prevQuote = QuoteService.getPreviousQuote(quote.value.id)
+    if (prevQuote) {
+      router.push(`/quote/${prevQuote.id}`)
+    }
+  }
+}
+
+// Watch for route changes
+watch(
+  () => route.params.id,
+  (newId) => {
+    if (newId) {
+      loadQuote(newId)
+    }
+  },
+  { immediate: true }
+)
+
+onMounted(() => {
+  const quoteId = route.params.id
+  if (quoteId) {
+    loadQuote(quoteId)
+  }
+})
 </script>
 
 <style scoped>

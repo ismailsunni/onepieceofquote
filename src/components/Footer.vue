@@ -78,8 +78,6 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer'
-}
+<script setup>
+// No reactive logic needed for Footer component
 </script>

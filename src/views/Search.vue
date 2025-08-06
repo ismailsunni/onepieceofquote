@@ -186,44 +186,38 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, computed, onMounted, watch, nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import QuoteCard from '@/components/QuoteCard.vue'
 import QuoteService from '@/services/QuoteService.js'
 
-export default {
-  name: 'Search',
-  components: {
-    QuoteCard
-  },
-  setup() {
-    const route = useRoute()
-    const router = useRouter()
+const route = useRoute()
+const router = useRouter()
 
-    const searchQuery = ref('')
-    const currentSearchQuery = ref('')
-    const searchResults = ref([])
-    const loading = ref(false)
-    const currentPage = ref(1)
-    const quotesPerPage = 12
-    const showSuggestions = ref(false)
-    const recentSearches = ref([])
+const searchQuery = ref('')
+const currentSearchQuery = ref('')
+const searchResults = ref([])
+const loading = ref(false)
+const currentPage = ref(1)
+const quotesPerPage = 12
+const showSuggestions = ref(false)
+const recentSearches = ref([])
 
-    const totalQuotes = computed(() => QuoteService.getAllQuotes().length)
+const totalQuotes = computed(() => QuoteService.getAllQuotes().length)
 
-    const suggestions = computed(() => {
-      if (!currentSearchQuery.value || currentSearchQuery.value.length < 2) {
-        return []
-      }
+const suggestions = computed(() => {
+  if (!currentSearchQuery.value || currentSearchQuery.value.length < 2) {
+    return []
+  }
 
-      const query = currentSearchQuery.value.toLowerCase()
-      const suggestions = []
+  const query = currentSearchQuery.value.toLowerCase()
+  const suggestions = []
 
-      // Character suggestions
-      QuoteService.getAllCharacters().forEach(character => {
-        if (character.name.toLowerCase().includes(query)) {
-          suggestions.push({
+  // Character suggestions
+  QuoteService.getAllCharacters().forEach(character => {
+    if (character.name.toLowerCase().includes(query)) {
+      suggestions.push({
             text: character.name,
             type: 'character'
           })
@@ -243,175 +237,154 @@ export default {
       return suggestions.slice(0, 5)
     })
 
-    const paginatedResults = computed(() => {
-      return QuoteService.paginateQuotes(searchResults.value, currentPage.value, quotesPerPage)
-    })
+const paginatedResults = computed(() => {
+  return QuoteService.paginateQuotes(searchResults.value, currentPage.value, quotesPerPage)
+})
 
-    const visiblePages = computed(() => {
-      const total = paginatedResults.value.totalPages
-      const current = paginatedResults.value.currentPage
-      const pages = []
+const visiblePages = computed(() => {
+  const total = paginatedResults.value.totalPages
+  const current = paginatedResults.value.currentPage
+  const pages = []
 
-      if (total <= 7) {
-        for (let i = 1; i <= total; i++) {
-          pages.push(i)
-        }
-      } else {
-        pages.push(1)
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) {
+      pages.push(i)
+    }
+  } else {
+    pages.push(1)
 
-        if (current > 4) {
-          pages.push('...')
-        }
-
-        const start = Math.max(2, current - 1)
-        const end = Math.min(total - 1, current + 1)
-
-        for (let i = start; i <= end; i++) {
-          pages.push(i)
-        }
-
-        if (current < total - 3) {
-          pages.push('...')
-        }
-
-        pages.push(total)
-      }
-
-      return pages.filter(page => page !== '...' || pages.indexOf(page) === pages.lastIndexOf(page))
-    })
-
-    const loadRecentSearches = () => {
-      const saved = localStorage.getItem('recentSearches')
-      if (saved) {
-        recentSearches.value = JSON.parse(saved).slice(0, 5)
-      }
+    if (current > 4) {
+      pages.push('...')
     }
 
-    const saveToRecentSearches = (query) => {
-      if (!query.trim()) return
+    const start = Math.max(2, current - 1)
+    const end = Math.min(total - 1, current + 1)
 
-      const searches = recentSearches.value.filter(s => s !== query)
-      searches.unshift(query)
-      recentSearches.value = searches.slice(0, 5)
-
-      localStorage.setItem('recentSearches', JSON.stringify(recentSearches.value))
+    for (let i = start; i <= end; i++) {
+      pages.push(i)
     }
 
-    const performSearch = async () => {
-      const query = currentSearchQuery.value.trim()
-      if (!query) return
-
-      loading.value = true
-      showSuggestions.value = false
-
-      try {
-        searchQuery.value = query
-        searchResults.value = QuoteService.searchQuotes(query)
-        currentPage.value = 1
-
-        // Update URL
-        router.replace(`/search/${encodeURIComponent(query)}`)
-
-        // Save to recent searches
-        saveToRecentSearches(query)
-
-        // Update page meta
-        updatePageMeta(query, searchResults.value.length)
-
-      } catch (error) {
-        console.error('Search error:', error)
-      } finally {
-        loading.value = false
-      }
+    if (current < total - 3) {
+      pages.push('...')
     }
 
-    const handleSearchInput = () => {
-      showSuggestions.value = currentSearchQuery.value.length >= 2
-    }
+    pages.push(total)
+  }
 
-    const selectSuggestion = (suggestion) => {
-      currentSearchQuery.value = suggestion
-      showSuggestions.value = false
-      nextTick(() => {
-        performSearch()
-      })
-    }
+  return pages.filter(page => page !== '...' || pages.indexOf(page) === pages.lastIndexOf(page))
+})
 
-    const clearSearch = () => {
-      searchQuery.value = ''
-      currentSearchQuery.value = ''
-      searchResults.value = []
-      showSuggestions.value = false
-      router.replace('/search')
-    }
-
-    const goToPage = (page) => {
-      if (page >= 1 && page <= paginatedResults.value.totalPages) {
-        currentPage.value = page
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }
-    }
-
-    const updatePageMeta = (query, resultCount) => {
-      document.title = `Search "${query}" - One Piece of Quote`
-
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', `Found ${resultCount} One Piece quotes matching "${query}". Search through inspirational quotes from your favorite characters.`)
-      }
-    }
-
-    // Watch for route changes
-    watch(
-      () => route.params.query,
-      (newQuery) => {
-        if (newQuery && newQuery !== searchQuery.value) {
-          currentSearchQuery.value = decodeURIComponent(newQuery)
-          performSearch()
-        } else if (!newQuery) {
-          clearSearch()
-        }
-      },
-      { immediate: true }
-    )
-
-    // Hide suggestions when clicking outside
-    const hideSuggestions = () => {
-      showSuggestions.value = false
-    }
-
-    onMounted(() => {
-      loadRecentSearches()
-      document.addEventListener('click', hideSuggestions)
-
-      // Load initial search if provided in URL
-      const queryParam = route.params.query
-      if (queryParam) {
-        currentSearchQuery.value = decodeURIComponent(queryParam)
-        performSearch()
-      } else {
-        document.title = 'Search Quotes - One Piece of Quote'
-      }
-    })
-
-    return {
-      searchQuery,
-      currentSearchQuery,
-      searchResults,
-      loading,
-      currentPage,
-      totalQuotes,
-      suggestions,
-      showSuggestions,
-      recentSearches,
-      paginatedResults,
-      visiblePages,
-      performSearch,
-      handleSearchInput,
-      selectSuggestion,
-      clearSearch,
-      goToPage
-    }
+const loadRecentSearches = () => {
+  const saved = localStorage.getItem('recentSearches')
+  if (saved) {
+    recentSearches.value = JSON.parse(saved).slice(0, 5)
   }
 }
+
+const saveToRecentSearches = (query) => {
+  if (!query.trim()) return
+
+  const searches = recentSearches.value.filter(s => s !== query)
+  searches.unshift(query)
+  recentSearches.value = searches.slice(0, 5)
+
+  localStorage.setItem('recentSearches', JSON.stringify(recentSearches.value))
+}
+
+const performSearch = async () => {
+  const query = currentSearchQuery.value.trim()
+  if (!query) return
+
+  loading.value = true
+  showSuggestions.value = false
+
+  try {
+    searchQuery.value = query
+    searchResults.value = QuoteService.searchQuotes(query)
+    currentPage.value = 1
+
+    // Update URL
+    router.replace(`/search/${encodeURIComponent(query)}`)
+
+    // Save to recent searches
+    saveToRecentSearches(query)
+
+    // Update page meta
+    updatePageMeta(query, searchResults.value.length)
+
+  } catch (error) {
+    console.error('Search error:', error)
+  } finally {
+    loading.value = false
+  }
+}
+
+const handleSearchInput = () => {
+  showSuggestions.value = currentSearchQuery.value.length >= 2
+}
+
+const selectSuggestion = (suggestion) => {
+  currentSearchQuery.value = suggestion
+  showSuggestions.value = false
+  nextTick(() => {
+    performSearch()
+  })
+}
+
+const clearSearch = () => {
+  searchQuery.value = ''
+  currentSearchQuery.value = ''
+  searchResults.value = []
+  showSuggestions.value = false
+  router.replace('/search')
+}
+
+const goToPage = (page) => {
+  if (page >= 1 && page <= paginatedResults.value.totalPages) {
+    currentPage.value = page
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
+const updatePageMeta = (query, resultCount) => {
+  document.title = `Search "${query}" - One Piece of Quote`
+
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', `Found ${resultCount} One Piece quotes matching "${query}". Search through inspirational quotes from your favorite characters.`)
+  }
+}
+
+// Watch for route changes
+watch(
+  () => route.params.query,
+  (newQuery) => {
+    if (newQuery && newQuery !== searchQuery.value) {
+      currentSearchQuery.value = decodeURIComponent(newQuery)
+      performSearch()
+    } else if (!newQuery) {
+      clearSearch()
+    }
+  },
+  { immediate: true }
+)
+
+// Hide suggestions when clicking outside
+const hideSuggestions = () => {
+  showSuggestions.value = false
+}
+
+onMounted(() => {
+  loadRecentSearches()
+  document.addEventListener('click', hideSuggestions)
+
+  // Load initial search if provided in URL
+  const queryParam = route.params.query
+  if (queryParam) {
+    currentSearchQuery.value = decodeURIComponent(queryParam)
+    performSearch()
+  } else {
+    document.title = 'Search Quotes - One Piece of Quote'
+  }
+})
 </script>

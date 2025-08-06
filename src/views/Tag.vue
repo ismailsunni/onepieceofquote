@@ -130,147 +130,128 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import QuoteCard from '@/components/QuoteCard.vue'
 import QuoteService from '@/services/QuoteService.js'
 
-export default {
-  name: 'Tag',
-  components: {
-    QuoteCard
-  },
-  setup() {
-    const route = useRoute()
-    const router = useRouter()
+const route = useRoute()
+const router = useRouter()
 
-    const tag = ref(null)
-    const quotes = ref([])
-    const loading = ref(true)
-    const currentPage = ref(1)
-    const quotesPerPage = 10
+const tag = ref(null)
+const quotes = ref([])
+const loading = ref(true)
+const currentPage = ref(1)
+const quotesPerPage = 10
 
-    const paginatedQuotes = computed(() => {
-      return QuoteService.paginateQuotes(quotes.value, currentPage.value, quotesPerPage)
-    })
+const paginatedQuotes = computed(() => {
+  return QuoteService.paginateQuotes(quotes.value, currentPage.value, quotesPerPage)
+})
 
-    const visiblePages = computed(() => {
-      const total = paginatedQuotes.value.totalPages
-      const current = paginatedQuotes.value.currentPage
-      const pages = []
+const visiblePages = computed(() => {
+  const total = paginatedQuotes.value.totalPages
+  const current = paginatedQuotes.value.currentPage
+  const pages = []
 
-      if (total <= 7) {
-        for (let i = 1; i <= total; i++) {
-          pages.push(i)
-        }
-      } else {
-        pages.push(1)
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) {
+      pages.push(i)
+    }
+  } else {
+    pages.push(1)
 
-        if (current > 4) {
-          pages.push('...')
-        }
-
-        const start = Math.max(2, current - 1)
-        const end = Math.min(total - 1, current + 1)
-
-        for (let i = start; i <= end; i++) {
-          pages.push(i)
-        }
-
-        if (current < total - 3) {
-          pages.push('...')
-        }
-
-        pages.push(total)
-      }
-
-      return pages.filter(page => page !== '...' || pages.indexOf(page) === pages.lastIndexOf(page))
-    })
-
-    const relatedTags = computed(() => {
-      if (!tag.value) return []
-
-      return QuoteService.getPopularTags()
-        .filter(t => t.name !== tag.value.name)
-        .slice(0, 8)
-    })
-
-    const loadTagData = async (tagName) => {
-      loading.value = true
-      tag.value = null
-      quotes.value = []
-      currentPage.value = 1
-
-      try {
-        const tagData = QuoteService.getTagByName(tagName)
-        if (tagData) {
-          tag.value = tagData
-          quotes.value = QuoteService.getQuotesByTag(tagName)
-          updatePageMeta(tagData, quotes.value.length)
-        }
-      } catch (error) {
-        console.error('Error loading tag data:', error)
-      } finally {
-        loading.value = false
-      }
+    if (current > 4) {
+      pages.push('...')
     }
 
-    const updatePageMeta = (tagData, quoteCount) => {
-      document.title = `#${tagData.name} Quotes - One Piece of Quote`
+    const start = Math.max(2, current - 1)
+    const end = Math.min(total - 1, current + 1)
 
-      const metaDescription = document.querySelector('meta[name="description"]')
-      if (metaDescription) {
-        metaDescription.setAttribute('content', `${quoteCount} One Piece quotes about ${tagData.name}. ${tagData.description}`)
-      }
-
-      // Update Open Graph tags
-      const ogTitle = document.querySelector('meta[property="og:title"]')
-      if (ogTitle) {
-        ogTitle.setAttribute('content', `#${tagData.name} Quotes - One Piece of Quote`)
-      }
-
-      const ogDescription = document.querySelector('meta[property="og:description"]')
-      if (ogDescription) {
-        ogDescription.setAttribute('content', `${quoteCount} One Piece quotes about ${tagData.name}. ${tagData.description}`)
-      }
+    for (let i = start; i <= end; i++) {
+      pages.push(i)
     }
 
-    const goToPage = (page) => {
-      if (page >= 1 && page <= paginatedQuotes.value.totalPages) {
-        currentPage.value = page
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }
+    if (current < total - 3) {
+      pages.push('...')
     }
 
-    // Watch for route changes
-    watch(
-      () => route.params.tag,
-      (newTag) => {
-        if (newTag) {
-          loadTagData(newTag)
-        }
-      },
-      { immediate: true }
-    )
+    pages.push(total)
+  }
 
-    onMounted(() => {
-      const tagName = route.params.tag
-      if (tagName) {
-        loadTagData(tagName)
-      }
-    })
+  return pages.filter(page => page !== '...' || pages.indexOf(page) === pages.lastIndexOf(page))
+})
 
-    return {
-      tag,
-      quotes,
-      loading,
-      currentPage,
-      paginatedQuotes,
-      visiblePages,
-      relatedTags,
-      goToPage
+const relatedTags = computed(() => {
+  if (!tag.value) return []
+
+  return QuoteService.getPopularTags()
+    .filter(t => t.name !== tag.value.name)
+    .slice(0, 8)
+})
+
+const loadTagData = async (tagName) => {
+  loading.value = true
+  tag.value = null
+  quotes.value = []
+  currentPage.value = 1
+
+  try {
+    const tagData = QuoteService.getTagByName(tagName)
+    if (tagData) {
+      tag.value = tagData
+      quotes.value = QuoteService.getQuotesByTag(tagName)
+      updatePageMeta(tagData, quotes.value.length)
     }
+  } catch (error) {
+    console.error('Error loading tag data:', error)
+  } finally {
+    loading.value = false
   }
 }
+
+const updatePageMeta = (tagData, quoteCount) => {
+  document.title = `#${tagData.name} Quotes - One Piece of Quote`
+
+  const metaDescription = document.querySelector('meta[name="description"]')
+  if (metaDescription) {
+    metaDescription.setAttribute('content', `${quoteCount} One Piece quotes about ${tagData.name}. ${tagData.description}`)
+  }
+
+  // Update Open Graph tags
+  const ogTitle = document.querySelector('meta[property="og:title"]')
+  if (ogTitle) {
+    ogTitle.setAttribute('content', `#${tagData.name} Quotes - One Piece of Quote`)
+  }
+
+  const ogDescription = document.querySelector('meta[property="og:description"]')
+  if (ogDescription) {
+    ogDescription.setAttribute('content', `${quoteCount} One Piece quotes about ${tagData.name}. ${tagData.description}`)
+  }
+}
+
+const goToPage = (page) => {
+  if (page >= 1 && page <= paginatedQuotes.value.totalPages) {
+    currentPage.value = page
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
+// Watch for route changes
+watch(
+  () => route.params.tag,
+  (newTag) => {
+    if (newTag) {
+      loadTagData(newTag)
+    }
+  },
+  { immediate: true }
+)
+
+onMounted(() => {
+  const tagName = route.params.tag
+  if (tagName) {
+    loadTagData(tagName)
+  }
+})
 </script>
