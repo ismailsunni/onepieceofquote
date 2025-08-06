@@ -46,24 +46,42 @@ class QuoteService {
     )
   }
 
-  // Get all characters
+  // Get all characters with calculated quote counts
   getAllCharacters() {
-    return this.characters
+    return this.characters.map(character => ({
+      ...character,
+      quote_count: this.getQuotesByCharacter(character.slug).length
+    }))
   }
 
-  // Get character by slug
+  // Get character by slug with calculated quote count
   getCharacterBySlug(slug) {
-    return this.characters.find(character => character.slug === slug)
+    const character = this.characters.find(character => character.slug === slug)
+    if (!character) return null
+
+    return {
+      ...character,
+      quote_count: this.getQuotesByCharacter(character.slug).length
+    }
   }
 
-  // Get all tags
+  // Get all tags with calculated quote counts
   getAllTags() {
-    return this.tags
+    return this.tags.map(tag => ({
+      ...tag,
+      quote_count: this.getQuotesByTag(tag.name).length
+    }))
   }
 
-  // Get tag by name
+  // Get tag by name with calculated quote count
   getTagByName(name) {
-    return this.tags.find(tag => tag.name === name)
+    const tag = this.tags.find(tag => tag.name === name)
+    if (!tag) return null
+
+    return {
+      ...tag,
+      quote_count: this.getQuotesByTag(tag.name).length
+    }
   }
 
   // Get next quote (by array index)
@@ -106,16 +124,16 @@ class QuoteService {
       .slice(0, limit)
   }
 
-  // Get popular tags (by quote count)
+  // Get popular tags (by calculated quote count)
   getPopularTags(limit = 10) {
-    return [...this.tags]
+    return this.getAllTags()
       .sort((a, b) => b.quote_count - a.quote_count)
       .slice(0, limit)
   }
 
-  // Get popular characters (by quote count)
+  // Get popular characters (by calculated quote count)
   getPopularCharacters(limit = 10) {
-    return [...this.characters]
+    return this.getAllCharacters()
       .sort((a, b) => b.quote_count - a.quote_count)
       .slice(0, limit)
   }

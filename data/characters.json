@@ -2,49 +2,41 @@
     {
         "name": "Monkey D. Luffy",
         "slug": "monkey-d-luffy",
-        "quote_count": 2,
         "description": "Captain of the Straw Hat Pirates"
     },
     {
         "name": "Roronoa Zoro",
         "slug": "roronoa-zoro",
-        "quote_count": 2,
         "description": "Swordsman of the Straw Hat Pirates"
     },
     {
         "name": "Nami",
         "slug": "nami",
-        "quote_count": 1,
         "description": "Navigator of the Straw Hat Pirates"
     },
     {
         "name": "Sanji",
         "slug": "sanji",
-        "quote_count": 1,
         "description": "Cook of the Straw Hat Pirates"
     },
     {
         "name": "Tony Tony Chopper",
         "slug": "tony-tony-chopper",
-        "quote_count": 1,
         "description": "Doctor of the Straw Hat Pirates"
     },
     {
         "name": "Nico Robin",
         "slug": "nico-robin",
-        "quote_count": 1,
         "description": "Archaeologist of the Straw Hat Pirates"
     },
     {
         "name": "Usopp",
         "slug": "usopp",
-        "quote_count": 1,
         "description": "Sniper of the Straw Hat Pirates"
     },
     {
         "name": "Franky",
         "slug": "franky",
-        "quote_count": 1,
         "description": "Shipwright of the Straw Hat Pirates"
     }
 ]
