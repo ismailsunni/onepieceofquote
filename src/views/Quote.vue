@@ -94,6 +94,7 @@ import { ref, onMounted, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import QuoteCard from '@/components/QuoteCard.vue'
 import QuoteService from '@/services/QuoteService.js'
+import { getFullUrl } from '@/utils/url.js'
 
 const router = useRouter()
 const route = useRoute()
@@ -149,7 +150,7 @@ const updatePageMeta = (quoteData) => {
   // Update canonical URL
   const canonicalLink = document.querySelector('link[rel="canonical"]')
   if (canonicalLink) {
-    canonicalLink.setAttribute('href', `${window.location.origin}/quote/${quoteData.id}`)
+    canonicalLink.setAttribute('href', getFullUrl(`/quote/${quoteData.id}`))
   }
 }
 
@@ -201,6 +202,7 @@ onMounted(() => {
 .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

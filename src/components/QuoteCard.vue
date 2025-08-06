@@ -86,6 +86,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
+import { getFullUrl } from '@/utils/url.js'
 
 const props = defineProps({
   quote: {
@@ -112,7 +113,7 @@ const copyQuote = async () => {
 }
 
 const copyLink = async () => {
-  const url = `${window.location.origin}/quote/${props.quote.id}`
+  const url = getFullUrl(`/quote/${props.quote.id}`)
   try {
     await navigator.clipboard.writeText(url)
     linkCopied.value = true
@@ -126,7 +127,7 @@ const copyLink = async () => {
 
 const shareQuote = () => {
   const text = `"${props.quote.quote}" - ${props.quote.character}`
-  const url = `${window.location.origin}/quote/${props.quote.id}`
+  const url = getFullUrl(`/quote/${props.quote.id}`)
 
   if (navigator.share) {
     navigator.share({
