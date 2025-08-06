@@ -30,6 +30,19 @@
   </head>
   <body>
     <div id="app"></div>
+    
+    <!-- Handle GitHub Pages SPA redirects -->
+    <script>
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get('redirect');
+        if (redirect) {
+          // Clear the query string and redirect to the proper path
+          window.history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
