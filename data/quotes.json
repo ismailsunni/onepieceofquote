@@ -1,7 +1,6 @@
 [
     {
         "id": "luffy-001",
-        "character": "Monkey D. Luffy",
         "character_slug": "monkey-d-luffy",
         "quote": "I don't want to conquer anything. I just think the guy with the most freedom in this whole ocean is the Pirate King!",
         "chapter": 507,
@@ -15,7 +14,6 @@
     },
     {
         "id": "luffy-002",
-        "character": "Monkey D. Luffy",
         "character_slug": "monkey-d-luffy",
         "quote": "I'm gonna be the Pirate King!",
         "chapter": 1,
@@ -29,7 +27,6 @@
     },
     {
         "id": "zoro-001",
-        "character": "Roronoa Zoro",
         "character_slug": "roronoa-zoro",
         "quote": "Nothing happened.",
         "chapter": 485,
@@ -43,7 +40,6 @@
     },
     {
         "id": "zoro-002",
-        "character": "Roronoa Zoro",
         "character_slug": "roronoa-zoro",
         "quote": "When I decided to follow my dream, I had already discarded my life.",
         "chapter": 194,
@@ -57,7 +53,6 @@
     },
     {
         "id": "nami-001",
-        "character": "Nami",
         "character_slug": "nami",
         "quote": "Luffy... help me!",
         "chapter": 81,
@@ -71,7 +66,6 @@
     },
     {
         "id": "sanji-001",
-        "character": "Sanji",
         "character_slug": "sanji",
         "quote": "A man forgives a woman's lies.",
         "chapter": 403,
@@ -85,7 +79,6 @@
     },
     {
         "id": "chopper-001",
-        "character": "Tony Tony Chopper",
         "character_slug": "tony-tony-chopper",
         "quote": "When do you think people die? When they are shot through the heart by the bullet of a pistol? No. When they are ravaged by an incurable disease? No. When they drink a soup made from a poisonous mushroom!? No! It's when... they are forgotten.",
         "chapter": 145,
@@ -100,7 +93,6 @@
     },
     {
         "id": "robin-001",
-        "character": "Nico Robin",
         "character_slug": "nico-robin",
         "quote": "I want to live! Take me out to sea with you!",
         "chapter": 398,
@@ -115,7 +107,6 @@
     },
     {
         "id": "usopp-001",
-        "character": "Usopp",
         "character_slug": "usopp",
         "quote": "A man's dream will never die!",
         "chapter": 225,
@@ -129,7 +120,6 @@
     },
     {
         "id": "franky-001",
-        "character": "Franky",
         "character_slug": "franky",
         "quote": "Existence is not a crime!",
         "chapter": 398,

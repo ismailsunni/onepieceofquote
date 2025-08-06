@@ -9,41 +9,62 @@ class QuoteService {
     this.tags = tagsData
   }
 
+  // Helper method to enrich quote with character name
+  enrichQuoteWithCharacter(quote) {
+    const character = this.characters.find(char => char.slug === quote.character_slug)
+    return {
+      ...quote,
+      character: character ? character.name : 'Unknown Character'
+    }
+  }
+
+  // Helper method to enrich multiple quotes with character names
+  enrichQuotesWithCharacters(quotes) {
+    return quotes.map(quote => this.enrichQuoteWithCharacter(quote))
+  }
+
   // Get all quotes
   getAllQuotes() {
-    return this.quotes
+    return this.enrichQuotesWithCharacters(this.quotes)
   }
 
   // Get quote by ID
   getQuoteById(id) {
-    return this.quotes.find(quote => quote.id === id)
+    const quote = this.quotes.find(quote => quote.id === id)
+    return quote ? this.enrichQuoteWithCharacter(quote) : null
   }
 
   // Get random quote
   getRandomQuote() {
     const randomIndex = Math.floor(Math.random() * this.quotes.length)
-    return this.quotes[randomIndex]
+    return this.enrichQuoteWithCharacter(this.quotes[randomIndex])
   }
 
   // Get quotes by character slug
   getQuotesByCharacter(characterSlug) {
-    return this.quotes.filter(quote => quote.character_slug === characterSlug)
+    const quotes = this.quotes.filter(quote => quote.character_slug === characterSlug)
+    return this.enrichQuotesWithCharacters(quotes)
   }
 
   // Get quotes by tag
   getQuotesByTag(tag) {
-    return this.quotes.filter(quote => quote.tags.includes(tag))
+    const quotes = this.quotes.filter(quote => quote.tags.includes(tag))
+    return this.enrichQuotesWithCharacters(quotes)
   }
 
   // Search quotes
   searchQuotes(query) {
     const searchTerm = query.toLowerCase()
-    return this.quotes.filter(quote =>
-      quote.quote.toLowerCase().includes(searchTerm) ||
-      quote.character.toLowerCase().includes(searchTerm) ||
-      quote.description.toLowerCase().includes(searchTerm) ||
-      quote.tags.some(tag => tag.toLowerCase().includes(searchTerm))
-    )
+    const filteredQuotes = this.quotes.filter(quote => {
+      const character = this.characters.find(char => char.slug === quote.character_slug)
+      const characterName = character ? character.name.toLowerCase() : ''
+
+      return quote.quote.toLowerCase().includes(searchTerm) ||
+        characterName.includes(searchTerm) ||
+        quote.description.toLowerCase().includes(searchTerm) ||
+        quote.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+    })
+    return this.enrichQuotesWithCharacters(filteredQuotes)
   }
 
   // Get all characters with calculated quote counts
@@ -90,7 +111,7 @@ class QuoteService {
     if (currentIndex === -1) return null
 
     const nextIndex = (currentIndex + 1) % this.quotes.length
-    return this.quotes[nextIndex]
+    return this.enrichQuoteWithCharacter(this.quotes[nextIndex])
   }
 
   // Get previous quote (by array index)
@@ -99,7 +120,7 @@ class QuoteService {
     if (currentIndex === -1) return null
 
     const prevIndex = currentIndex === 0 ? this.quotes.length - 1 : currentIndex - 1
-    return this.quotes[prevIndex]
+    return this.enrichQuoteWithCharacter(this.quotes[prevIndex])
   }
 
   // Paginate quotes
@@ -119,9 +140,10 @@ class QuoteService {
 
   // Get recent quotes (by created_at)
   getRecentQuotes(limit = 5) {
-    return [...this.quotes]
+    const recentQuotes = [...this.quotes]
       .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
       .slice(0, limit)
+    return this.enrichQuotesWithCharacters(recentQuotes)
   }
 
   // Get popular tags (by calculated quote count)

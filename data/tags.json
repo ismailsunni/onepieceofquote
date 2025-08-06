@@ -38,5 +38,53 @@
     {
         "name": "hope",
         "description": "Quotes about hope and optimism"
+    },
+    {
+        "name": "help",
+        "description": "Quotes about asking for and receiving help"
+    },
+    {
+        "name": "trust",
+        "description": "Quotes about trust and faith in others"
+    },
+    {
+        "name": "chivalry",
+        "description": "Quotes about chivalrous behavior and respect"
+    },
+    {
+        "name": "forgiveness",
+        "description": "Quotes about forgiveness and understanding"
+    },
+    {
+        "name": "women",
+        "description": "Quotes related to respect for women"
+    },
+    {
+        "name": "death",
+        "description": "Quotes about death and mortality"
+    },
+    {
+        "name": "memory",
+        "description": "Quotes about memory and remembrance"
+    },
+    {
+        "name": "philosophy",
+        "description": "Philosophical quotes about life and existence"
+    },
+    {
+        "name": "perseverance",
+        "description": "Quotes about perseverance and persistence"
+    },
+    {
+        "name": "existence",
+        "description": "Quotes about the right to exist and being"
+    },
+    {
+        "name": "justice",
+        "description": "Quotes about justice and fairness"
+    },
+    {
+        "name": "defense",
+        "description": "Quotes about defending others and principles"
     }
 ]
