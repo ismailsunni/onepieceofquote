@@ -32,7 +32,7 @@
     <div v-if="quote" class="flex justify-center items-center space-x-4 mb-12">
       <button
         @click="showPreviousQuote"
-        class="btn btn-secondary"
+        class="btn btn-secondary flex items-center"
         title="Previous quote"
       >
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,15 +46,12 @@
         class="btn btn-primary"
         title="Random quote"
       >
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0V9a8 8 0 1115.356 2m-15.356 0H4v5.582m0 0a8.003 8.003 0 0015.356-2M19.418 15H20v-5.582"></path>
-        </svg>
         Random
       </button>
 
       <button
         @click="showNextQuote"
-        class="btn btn-secondary"
+        class="btn btn-secondary flex items-center"
         title="Next quote"
       >
         Next

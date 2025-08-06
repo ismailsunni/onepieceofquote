@@ -163,7 +163,7 @@ const copyAsImage = async () => {
   try {
     // Generate the permalink for this quote
     const permalink = getFullUrl(`/quote/${props.quote.id}`)
-    
+
     const wasCopied = await copyQuoteAsImage(props.quote, permalink)
     imageCopied.value = true
     imageDownloaded.value = !wasCopied // If not copied, it was downloaded
