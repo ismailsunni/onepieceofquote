@@ -15,6 +15,9 @@
           <router-link to="/browse" class="nav-link" :class="{ 'nav-link-active': $route.name === 'Browse' }">
             Browse
           </router-link>
+          <router-link to="/submit-quote" class="nav-link" :class="{ 'nav-link-active': $route.name === 'SubmitQuote' }">
+            Submit
+          </router-link>
           <router-link to="/about" class="nav-link" :class="{ 'nav-link-active': $route.name === 'About' }">
             About
           </router-link>
@@ -109,6 +112,7 @@
       <nav v-show="showMobileMenu" class="md:hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
         <div class="flex flex-col space-y-2">
           <router-link to="/browse" class="nav-link py-2" @click="closeMobileMenu">Browse</router-link>
+          <router-link to="/submit-quote" class="nav-link py-2" @click="closeMobileMenu">Submit</router-link>
           <router-link to="/about" class="nav-link py-2" @click="closeMobileMenu">About</router-link>
         </div>
       </nav>

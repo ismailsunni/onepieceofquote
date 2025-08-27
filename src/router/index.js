@@ -6,6 +6,7 @@ import Search from '@/views/Search.vue'
 import Character from '@/views/Character.vue'
 import Tag from '@/views/Tag.vue'
 import About from '@/views/About.vue'
+import SubmitQuote from '@/views/SubmitQuote.vue'
 
 const routes = [
   {
@@ -62,6 +63,14 @@ const routes = [
     component: About,
     meta: {
       title: 'About - One Piece of Quote'
+    }
+  },
+  {
+    path: '/submit-quote',
+    name: 'SubmitQuote',
+    component: SubmitQuote,
+    meta: {
+      title: 'Submit a Quote - One Piece of Quote'
     }
   },
   {
