@@ -1,42 +1,117 @@
 [
-    {
-        "name": "Monkey D. Luffy",
-        "slug": "monkey-d-luffy",
-        "description": "Captain of the Straw Hat Pirates"
-    },
-    {
-        "name": "Roronoa Zoro",
-        "slug": "roronoa-zoro",
-        "description": "Swordsman of the Straw Hat Pirates"
-    },
-    {
-        "name": "Nami",
-        "slug": "nami",
-        "description": "Navigator of the Straw Hat Pirates"
-    },
-    {
-        "name": "Sanji",
-        "slug": "sanji",
-        "description": "Cook of the Straw Hat Pirates"
-    },
-    {
-        "name": "Tony Tony Chopper",
-        "slug": "tony-tony-chopper",
-        "description": "Doctor of the Straw Hat Pirates"
-    },
-    {
-        "name": "Nico Robin",
-        "slug": "nico-robin",
-        "description": "Archaeologist of the Straw Hat Pirates"
-    },
-    {
-        "name": "Usopp",
-        "slug": "usopp",
-        "description": "Sniper of the Straw Hat Pirates"
-    },
-    {
-        "name": "Franky",
-        "slug": "franky",
-        "description": "Shipwright of the Straw Hat Pirates"
-    }
+  {
+    "name": "Monkey D. Luffy",
+    "slug": "monkey-d-luffy",
+    "description": "Captain of the Straw Hat Pirates"
+  },
+  {
+    "name": "Roronoa Zoro",
+    "slug": "roronoa-zoro",
+    "description": "Swordsman of the Straw Hat Pirates"
+  },
+  {
+    "name": "Nami",
+    "slug": "nami",
+    "description": "Navigator of the Straw Hat Pirates"
+  },
+  {
+    "name": "Sanji",
+    "slug": "sanji",
+    "description": "Cook of the Straw Hat Pirates"
+  },
+  {
+    "name": "Tony Tony Chopper",
+    "slug": "tony-tony-chopper",
+    "description": "Doctor of the Straw Hat Pirates"
+  },
+  {
+    "name": "Nico Robin",
+    "slug": "nico-robin",
+    "description": "Archaeologist of the Straw Hat Pirates"
+  },
+  {
+    "name": "Usopp",
+    "slug": "usopp",
+    "description": "Sniper of the Straw Hat Pirates"
+  },
+  {
+    "name": "Franky",
+    "slug": "franky",
+    "description": "Shipwright of the Straw Hat Pirates"
+  },
+  {
+    "name": "Brook",
+    "slug": "brook",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Portgas D. Ace",
+    "slug": "portgas-d-ace",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Edward Newgate (Whitebeard)",
+    "slug": "edward-newgate",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Gol D. Roger",
+    "slug": "gol-d-roger",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Dr Hiluluk",
+    "slug": "dr-hiluluk",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Shanks",
+    "slug": "shanks",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Marshall D. Teach (Blackbeard)",
+    "slug": "marshall-d-teach",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Dracule Mihawk",
+    "slug": "dracule-mihawk",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Donquixote Doflamingo",
+    "slug": "donquixote-doflamingo",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Jinbe",
+    "slug": "jinbe",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Bellmere",
+    "slug": "bellmere",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Going Merry",
+    "slug": "going-merry",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Jaguar D Saul",
+    "slug": "jaguar-d-saul",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Corazon",
+    "slug": "corazon",
+    "description": "Character from One Piece"
+  },
+  {
+    "name": "Vinsmoke Sanji",
+    "slug": "vinsmoke-sanji",
+    "description": "Character from One Piece"
+  }
 ]

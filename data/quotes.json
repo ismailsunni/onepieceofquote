@@ -1,134 +1,639 @@
 [
-    {
-        "id": "luffy-507",
-        "character_slug": "monkey-d-luffy",
-        "quote": "I don't want to conquer anything. I just think the guy with the most freedom in this whole ocean is the Pirate King!",
-        "chapter": 507,
-        "description": "Luffy explains his definition of what it means to be the Pirate King to Rayleigh",
-        "tags": [
-            "freedom",
-            "pirate-king",
-            "dreams"
-        ],
-        "created_at": "2024-01-01"
-    },
-    {
-        "id": "luffy-001",
-        "character_slug": "monkey-d-luffy",
-        "quote": "I'm gonna be the Pirate King!",
-        "chapter": 1,
-        "description": "Luffy's iconic declaration of his dream",
-        "tags": [
-            "dreams",
-            "pirate-king",
-            "determination"
-        ],
-        "created_at": "2024-01-02"
-    },
-    {
-        "id": "zoro-485",
-        "character_slug": "roronoa-zoro",
-        "quote": "Nothing happened.",
-        "chapter": 485,
-        "description": "Zoro's stoic response after taking all of Luffy's pain from Kuma",
-        "tags": [
-            "sacrifice",
-            "loyalty",
-            "strength"
-        ],
-        "created_at": "2024-01-03"
-    },
-    {
-        "id": "zoro-194",
-        "character_slug": "roronoa-zoro",
-        "quote": "When I decided to follow my dream, I had already discarded my life.",
-        "chapter": 194,
-        "description": "Zoro's philosophy on pursuing one's dreams",
-        "tags": [
-            "dreams",
-            "sacrifice",
-            "determination"
-        ],
-        "created_at": "2024-01-04"
-    },
-    {
-        "id": "nami-081",
-        "character_slug": "nami",
-        "quote": "Luffy... help me!",
-        "chapter": 81,
-        "description": "Nami's emotional plea to Luffy at Arlong Park",
-        "tags": [
-            "help",
-            "emotion",
-            "trust"
-        ],
-        "created_at": "2024-01-05"
-    },
-    {
-        "id": "sanji-403",
-        "character_slug": "sanji",
-        "quote": "A man forgives a woman's lies.",
-        "chapter": 403,
-        "description": "Sanji's chivalrous philosophy",
-        "tags": [
-            "chivalry",
-            "forgiveness",
-            "women"
-        ],
-        "created_at": "2024-01-06"
-    },
-    {
-        "id": "chopper-145",
-        "character_slug": "tony-tony-chopper",
-        "quote": "When do you think people die? When they are shot through the heart by the bullet of a pistol? No. When they are ravaged by an incurable disease? No. When they drink a soup made from a poisonous mushroom!? No! It's when... they are forgotten.",
-        "chapter": 145,
-        "description": "Dr. Hiriluk's philosophy about death, remembered by Chopper",
-        "tags": [
-            "life",
-            "death",
-            "memory",
-            "philosophy"
-        ],
-        "created_at": "2024-01-07"
-    },
-    {
-        "id": "robin-398",
-        "character_slug": "nico-robin",
-        "quote": "I want to live! Take me out to sea with you!",
-        "chapter": 398,
-        "description": "Robin's emotional declaration at Enies Lobby",
-        "tags": [
-            "life",
-            "hope",
-            "freedom",
-            "emotion"
-        ],
-        "created_at": "2024-01-08"
-    },
-    {
-        "id": "usopp-225",
-        "character_slug": "usopp",
-        "quote": "A man's dream will never die!",
-        "chapter": 225,
-        "description": "Usopp quoting Blackbeard's words about dreams",
-        "tags": [
-            "dreams",
-            "perseverance",
-            "hope"
-        ],
-        "created_at": "2024-01-09"
-    },
-    {
-        "id": "franky-398",
-        "character_slug": "franky",
-        "quote": "Existence is not a crime!",
-        "chapter": 398,
-        "description": "Franky defending Robin's right to exist",
-        "tags": [
-            "existence",
-            "justice",
-            "defense"
-        ],
-        "created_at": "2024-01-10"
-    }
+  {
+    "id": "bellmere-077",
+    "character_slug": "bellmere",
+    "quote": "Don't forget to smile in any situation. As long as you are alive, there will be better things later, and there will be many.",
+    "chapter": 77,
+    "description": "Bellmere's final advice to Nami and Nojiko",
+    "tags": [
+      "hope",
+      "smile",
+      "optimism"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "brook-442",
+    "character_slug": "brook",
+    "quote": "No matter how deep the night, it always turns to day eventually.",
+    "chapter": 442,
+    "description": "Brook's philosophical observation about hope and perseverance",
+    "tags": [
+      "hope",
+      "perseverance",
+      "wisdom"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "brook-443",
+    "character_slug": "brook",
+    "quote": "What keeps me alive in this world is neither bodily organs nor muscles. It's my soul.",
+    "chapter": 443,
+    "description": "Brook explaining what truly keeps him going as a skeleton",
+    "tags": [
+      "soul",
+      "life",
+      "philosophy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "corazon-764",
+    "character_slug": "corazon",
+    "quote": "You are now... truly free.",
+    "chapter": 764,
+    "description": "Corazon's final thoughts about Law being liberated",
+    "tags": [
+      "freedom",
+      "sacrifice",
+      "love"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "donquixote-556",
+    "character_slug": "donquixote-doflamingo",
+    "quote": "Pirates are evil? The Marines are righteous? Justice will prevail, you say? But of course it will! Whoever wins this war becomes justice!",
+    "chapter": 556,
+    "description": "Doflamingo's cynical view of justice and morality",
+    "tags": [
+      "justice",
+      "morality",
+      "philosophy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "dr-145",
+    "character_slug": "dr-hiluluk",
+    "quote": "When do you think people die? When they are shot through the heart by the bullet of a pistol? No. When they are ravaged by an incurable disease? No. It's when they are forgotten!",
+    "chapter": 145,
+    "description": "Dr. Hiluluk's philosophy about death and memory",
+    "tags": [
+      "death",
+      "memory",
+      "philosophy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "dr-145-2",
+    "character_slug": "dr-hiluluk",
+    "quote": "There's no disease that can't be cured by laughter!",
+    "chapter": 145,
+    "description": "Dr. Hiluluk's belief in the healing power of joy",
+    "tags": [
+      "healing",
+      "laughter",
+      "medicine"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "dracule-052",
+    "character_slug": "dracule-mihawk",
+    "quote": "It's still too early for you to die. Discover your true self, the true world, become stronger!",
+    "chapter": 52,
+    "description": "Mihawk challenging Zoro to grow stronger after their duel",
+    "tags": [
+      "growth",
+      "challenge",
+      "potential"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "edward-576",
+    "character_slug": "edward-newgate",
+    "quote": "ONE PIECE IS REAL!",
+    "chapter": 576,
+    "description": "Whitebeard's declaration confirming the existence of the treasure before his death",
+    "tags": [
+      "treasure",
+      "legacy",
+      "truth"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "edward-576-2",
+    "character_slug": "edward-newgate",
+    "quote": "A man's dream never dies!",
+    "chapter": 576,
+    "description": "Whitebeard echoing the importance of dreams even in death",
+    "tags": [
+      "dreams",
+      "legacy",
+      "inspiration"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "franky-355",
+    "character_slug": "franky",
+    "quote": "Just being alive isn't a sin! There's no crime in living!",
+    "chapter": 355,
+    "description": "Franky defending the right to exist during the Enies Lobby arc",
+    "tags": [
+      "life",
+      "existence",
+      "justice"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "going-430",
+    "character_slug": "going-merry",
+    "quote": "I'm sorry. I wanted to carry you further. I wanted to go on more adventures with you.",
+    "chapter": 430,
+    "description": "The Going Merry's emotional farewell to the Straw Hat crew",
+    "tags": [
+      "farewell",
+      "emotion",
+      "friendship"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "gol-001",
+    "character_slug": "gol-d-roger",
+    "quote": "You want my treasure? You can have it! I left everything I gathered together in one place. Now you just have to find it!",
+    "chapter": 1,
+    "description": "Roger's final words that started the Great Pirate Era",
+    "tags": [
+      "treasure",
+      "adventure",
+      "legacy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "jaguar-396",
+    "character_slug": "jaguar-d-saul",
+    "quote": "You might be alone at the moment... But someday... You'll definitely find nakama! No one is born in this world to be alone!",
+    "chapter": 396,
+    "description": "Saul encouraging young Robin about finding friends",
+    "tags": [
+      "friendship",
+      "hope",
+      "loneliness"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "jinbe-648",
+    "character_slug": "jinbe",
+    "quote": "What is your true nature? There is no shame in being weak. The shame is in staying weak!",
+    "chapter": 648,
+    "description": "Jinbe encouraging growth and self-improvement",
+    "tags": [
+      "weakness",
+      "growth",
+      "improvement"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "marshall-225",
+    "character_slug": "marshall-d-teach",
+    "quote": "A man's dream will never die!",
+    "chapter": 225,
+    "description": "Blackbeard's declaration about the eternal nature of dreams",
+    "tags": [
+      "dreams",
+      "ambition",
+      "philosophy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-001",
+    "character_slug": "monkey-d-luffy",
+    "quote": "I'm the man who's going to be the Pirate King!",
+    "chapter": 1,
+    "description": "Luffy's signature declaration of his dream throughout the series",
+    "tags": [
+      "dreams",
+      "pirate-king",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-063",
+    "character_slug": "monkey-d-luffy",
+    "quote": "This isn't my place to die!",
+    "chapter": 63,
+    "description": "Luffy's determination during his fight against Don Krieg",
+    "tags": [
+      "determination",
+      "survival",
+      "willpower"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-082",
+    "character_slug": "monkey-d-luffy",
+    "quote": "You made our navigator cry.",
+    "chapter": 82,
+    "description": "Luffy confronting Arlong about making Nami cry",
+    "tags": [
+      "friendship",
+      "justice",
+      "crew"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-090",
+    "character_slug": "monkey-d-luffy",
+    "quote": "Maybe I can't do anything... but I have friends who will rescue me",
+    "chapter": 90,
+    "description": "Luffy acknowledging his reliance on his crew during the fight with Arlong",
+    "tags": [
+      "friendship",
+      "humility",
+      "crew"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-150",
+    "character_slug": "monkey-d-luffy",
+    "quote": "I don't care if you're a king or not. There are things that matter more than power.",
+    "chapter": 150,
+    "description": "Luffy speaking to Wapol during the Drum Island Arc about values beyond power",
+    "tags": [
+      "values",
+      "power",
+      "justice"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-213",
+    "character_slug": "monkey-d-luffy",
+    "quote": "Being alone hurts worse than pain.",
+    "chapter": 213,
+    "description": "Luffy expressing the pain of loneliness",
+    "tags": [
+      "loneliness",
+      "pain",
+      "emotion"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-278",
+    "character_slug": "monkey-d-luffy",
+    "quote": "I love heroes, but I don't want to be one. Do you even know what a hero is? For example, you have some meat. Pirates will feast on the meat, but the hero will distribute it among the people! I want to eat the meat!",
+    "chapter": 278,
+    "description": "Luffy explaining why he doesn't want to be a hero",
+    "tags": [
+      "hero",
+      "selfish",
+      "funny"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-398",
+    "character_slug": "monkey-d-luffy",
+    "quote": "Say you want to live!",
+    "chapter": 398,
+    "description": "Luffy demanding Robin to express her will to live during the Enies Lobby arc",
+    "tags": [
+      "life",
+      "friendship",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-507",
+    "character_slug": "monkey-d-luffy",
+    "quote": "I don't want to conquer anything. I just think the guy with the most freedom in this whole ocean is the Pirate King!",
+    "chapter": 507,
+    "description": "Luffy explains his definition of what it means to be the Pirate King to Rayleigh",
+    "tags": [
+      "freedom",
+      "pirate-king",
+      "dreams"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-507-2",
+    "character_slug": "monkey-d-luffy",
+    "quote": "I won't go on a boring adventure!",
+    "chapter": 507,
+    "description": "Luffy refusing to learn about the One Piece from Rayleigh",
+    "tags": [
+      "adventure",
+      "mystery",
+      "excitement"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-540",
+    "character_slug": "monkey-d-luffy",
+    "quote": "If I give up now, I'll regret it forever!",
+    "chapter": 540,
+    "description": "Luffy's determination during the Marineford War while trying to rescue Ace",
+    "tags": [
+      "determination",
+      "regret",
+      "perseverance"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-844",
+    "character_slug": "monkey-d-luffy",
+    "quote": "Without your help, I can't become the King of the Pirates!",
+    "chapter": 844,
+    "description": "Luffy telling Sanji how much he needs him during their confrontation at Whole Cake Island",
+    "tags": [
+      "friendship",
+      "crew",
+      "dreams"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "luffy-1045",
+    "character_slug": "monkey-d-luffy",
+    "quote": "Once we're dead, the only thing that is left is bones.",
+    "chapter": 1045,
+    "description": "Luffy's philosophical moment during his battle with Kaido",
+    "tags": [
+      "death",
+      "philosophy",
+      "bones"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "nami-081",
+    "character_slug": "nami",
+    "quote": "Luffy... help me!",
+    "chapter": 81,
+    "description": "Nami finally asking for help from Luffy at Arlong Park",
+    "tags": [
+      "help",
+      "friendship",
+      "trust"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "robin-398",
+    "character_slug": "nico-robin",
+    "quote": "I want to live!",
+    "chapter": 398,
+    "description": "Robin's emotional declaration of her will to live during the Enies Lobby arc",
+    "tags": [
+      "life",
+      "emotion",
+      "hope"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "robin-398-2",
+    "character_slug": "nico-robin",
+    "quote": "The government says your existence is a crime, but no matter what kind of weapons you may hold, just being alive isn't a sin!",
+    "chapter": 398,
+    "description": "Robin defending the right to exist",
+    "tags": [
+      "existence",
+      "justice",
+      "life"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "portgas-154",
+    "character_slug": "portgas-d-ace",
+    "quote": "I don't want to live for a thousand years. If I just live through today, that'll be enough.",
+    "chapter": 154,
+    "description": "Ace rejecting the offer of longevity in favor of living in the present",
+    "tags": [
+      "life",
+      "present",
+      "philosophy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "portgas-574",
+    "character_slug": "portgas-d-ace",
+    "quote": "Thank you for loving me!",
+    "chapter": 574,
+    "description": "Ace's final words expressing gratitude to his crew and Luffy",
+    "tags": [
+      "love",
+      "gratitude",
+      "death"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "portgas-574-2",
+    "character_slug": "portgas-d-ace",
+    "quote": "There's only one way to live life, and that's without regrets.",
+    "chapter": 574,
+    "description": "Ace's philosophy on living life to the fullest",
+    "tags": [
+      "life",
+      "regret",
+      "philosophy"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "zoro-052",
+    "character_slug": "roronoa-zoro",
+    "quote": "Scars on the back are a swordsman's shame.",
+    "chapter": 52,
+    "description": "Zoro facing Mihawk with honor, refusing to turn his back even in defeat",
+    "tags": [
+      "honor",
+      "swordsman",
+      "courage"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "zoro-052-2",
+    "character_slug": "roronoa-zoro",
+    "quote": "Only I can call my dream stupid!",
+    "chapter": 52,
+    "description": "Zoro defending his dream to become the world's strongest swordsman from Sanji's mockery",
+    "tags": [
+      "dreams",
+      "pride",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "zoro-194",
+    "character_slug": "roronoa-zoro",
+    "quote": "When the world shoves you around, you just gotta stand up and shove back.",
+    "chapter": 194,
+    "description": "Zoro's philosophy about facing adversity head-on",
+    "tags": [
+      "courage",
+      "resilience",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "zoro-485",
+    "character_slug": "roronoa-zoro",
+    "quote": "If I can't even protect my captain's dream, then whatever ambition I have is nothing but talk!",
+    "chapter": 485,
+    "description": "Zoro expressing his loyalty to Luffy and his determination to protect his captain's dream",
+    "tags": [
+      "loyalty",
+      "dreams",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "zoro-485-2",
+    "character_slug": "roronoa-zoro",
+    "quote": "Nothing happened.",
+    "chapter": 485,
+    "description": "Zoro's stoic response after taking all of Luffy's pain from Kuma at Thriller Bark",
+    "tags": [
+      "sacrifice",
+      "loyalty",
+      "stoic"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "zoro-485-3",
+    "character_slug": "roronoa-zoro",
+    "quote": "If I die here, then I'm a man that could only make it this far.",
+    "chapter": 485,
+    "description": "Zoro accepting potential death with dignity during Thriller Bark",
+    "tags": [
+      "death",
+      "acceptance",
+      "dignity"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "sanji-403",
+    "character_slug": "sanji",
+    "quote": "I'll do what you can't do, you do what I can't do.",
+    "chapter": 403,
+    "description": "Sanji expressing teamwork philosophy during a difficult situation",
+    "tags": [
+      "teamwork",
+      "cooperation",
+      "friendship"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "sanji-403-2",
+    "character_slug": "sanji",
+    "quote": "I would never kick a woman, even if it kills me!",
+    "chapter": 403,
+    "description": "Sanji's chivalrous code even when fighting Kalifa at Enies Lobby",
+    "tags": [
+      "chivalry",
+      "honor",
+      "principles"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "shanks-001",
+    "character_slug": "shanks",
+    "quote": "You can pour drinks on me, even spit on me. I'll just laugh about it. But if you dare to hurt my friends... I won't forgive you!",
+    "chapter": 1,
+    "description": "Shanks showing his protective nature towards his friends",
+    "tags": [
+      "friendship",
+      "protection",
+      "loyalty"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "chopper-140",
+    "character_slug": "tony-tony-chopper",
+    "quote": "I'll become a doctor who can cure any disease!",
+    "chapter": 140,
+    "description": "Chopper declaring his dream inspired by Dr. Hiluluk",
+    "tags": [
+      "dreams",
+      "medicine",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "chopper-297",
+    "character_slug": "tony-tony-chopper",
+    "quote": "I realized that back then, the reason I wanted to become human was that I really just wanted friends. Now, I just want to be a monster that can help Luffy!",
+    "chapter": 297,
+    "description": "Chopper reflecting on his true desires and loyalty to his captain",
+    "tags": [
+      "friendship",
+      "loyalty",
+      "self-discovery"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "chopper-297-2",
+    "character_slug": "tony-tony-chopper",
+    "quote": "I want to be the sort of man people can rely on!",
+    "chapter": 297,
+    "description": "Chopper expressing his desire to be dependable",
+    "tags": [
+      "reliability",
+      "growth",
+      "determination"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "usopp-185",
+    "character_slug": "usopp",
+    "quote": "There comes a time when a man must stand and fight! And that is when his friends' dreams are being laughed at!",
+    "chapter": 185,
+    "description": "Usopp standing up for his friends' dreams during the Alabasta arc",
+    "tags": [
+      "courage",
+      "friendship",
+      "dreams"
+    ],
+    "created_at": "2024-01-01"
+  },
+  {
+    "id": "vinsmoke-043",
+    "character_slug": "vinsmoke-sanji",
+    "quote": "Don't start a fight if you can't end it.",
+    "chapter": 43,
+    "description": "Sanji's advice about taking responsibility for one's actions",
+    "tags": [
+      "responsibility",
+      "wisdom",
+      "fighting"
+    ],
+    "created_at": "2024-01-01"
+  }
 ]

@@ -1,90 +1,310 @@
 [
-    {
-        "name": "freedom",
-        "description": "Quotes about freedom and liberty"
-    },
-    {
-        "name": "dreams",
-        "description": "Quotes about pursuing dreams and ambitions"
-    },
-    {
-        "name": "pirate-king",
-        "description": "Quotes related to becoming the Pirate King"
-    },
-    {
-        "name": "determination",
-        "description": "Quotes about determination and perseverance"
-    },
-    {
-        "name": "sacrifice",
-        "description": "Quotes about sacrifice and selflessness"
-    },
-    {
-        "name": "loyalty",
-        "description": "Quotes about loyalty and friendship"
-    },
-    {
-        "name": "strength",
-        "description": "Quotes about inner and physical strength"
-    },
-    {
-        "name": "life",
-        "description": "Quotes about the meaning and value of life"
-    },
-    {
-        "name": "emotion",
-        "description": "Quotes expressing deep emotions"
-    },
-    {
-        "name": "hope",
-        "description": "Quotes about hope and optimism"
-    },
-    {
-        "name": "help",
-        "description": "Quotes about asking for and receiving help"
-    },
-    {
-        "name": "trust",
-        "description": "Quotes about trust and faith in others"
-    },
-    {
-        "name": "chivalry",
-        "description": "Quotes about chivalrous behavior and respect"
-    },
-    {
-        "name": "forgiveness",
-        "description": "Quotes about forgiveness and understanding"
-    },
-    {
-        "name": "women",
-        "description": "Quotes related to respect for women"
-    },
-    {
-        "name": "death",
-        "description": "Quotes about death and mortality"
-    },
-    {
-        "name": "memory",
-        "description": "Quotes about memory and remembrance"
-    },
-    {
-        "name": "philosophy",
-        "description": "Philosophical quotes about life and existence"
-    },
-    {
-        "name": "perseverance",
-        "description": "Quotes about perseverance and persistence"
-    },
-    {
-        "name": "existence",
-        "description": "Quotes about the right to exist and being"
-    },
-    {
-        "name": "justice",
-        "description": "Quotes about justice and fairness"
-    },
-    {
-        "name": "defense",
-        "description": "Quotes about defending others and principles"
-    }
+  {
+    "name": "freedom",
+    "description": "Quotes about freedom and liberty"
+  },
+  {
+    "name": "dreams",
+    "description": "Quotes about pursuing dreams and ambitions"
+  },
+  {
+    "name": "pirate-king",
+    "description": "Quotes related to becoming the Pirate King"
+  },
+  {
+    "name": "determination",
+    "description": "Quotes about determination and perseverance"
+  },
+  {
+    "name": "sacrifice",
+    "description": "Quotes about sacrifice and selflessness"
+  },
+  {
+    "name": "loyalty",
+    "description": "Quotes about loyalty and friendship"
+  },
+  {
+    "name": "strength",
+    "description": "Quotes about inner and physical strength"
+  },
+  {
+    "name": "life",
+    "description": "Quotes about the meaning and value of life"
+  },
+  {
+    "name": "emotion",
+    "description": "Quotes expressing deep emotions"
+  },
+  {
+    "name": "hope",
+    "description": "Quotes about hope and optimism"
+  },
+  {
+    "name": "help",
+    "description": "Quotes about asking for and receiving help"
+  },
+  {
+    "name": "trust",
+    "description": "Quotes about trust and faith in others"
+  },
+  {
+    "name": "chivalry",
+    "description": "Quotes about chivalrous behavior and respect"
+  },
+  {
+    "name": "forgiveness",
+    "description": "Quotes about forgiveness and understanding"
+  },
+  {
+    "name": "women",
+    "description": "Quotes related to respect for women"
+  },
+  {
+    "name": "death",
+    "description": "Quotes about death and mortality"
+  },
+  {
+    "name": "memory",
+    "description": "Quotes about memory and remembrance"
+  },
+  {
+    "name": "philosophy",
+    "description": "Philosophical quotes about life and existence"
+  },
+  {
+    "name": "perseverance",
+    "description": "Quotes about perseverance and persistence"
+  },
+  {
+    "name": "existence",
+    "description": "Quotes about the right to exist and being"
+  },
+  {
+    "name": "justice",
+    "description": "Quotes about justice and fairness"
+  },
+  {
+    "name": "defense",
+    "description": "Quotes about defending others and principles"
+  },
+  {
+    "name": "friendship",
+    "description": "Quotes related to friendship"
+  },
+  {
+    "name": "crew",
+    "description": "Quotes related to crew"
+  },
+  {
+    "name": "humility",
+    "description": "Quotes related to humility"
+  },
+  {
+    "name": "survival",
+    "description": "Quotes related to survival"
+  },
+  {
+    "name": "willpower",
+    "description": "Quotes related to willpower"
+  },
+  {
+    "name": "values",
+    "description": "Quotes related to values"
+  },
+  {
+    "name": "power",
+    "description": "Quotes related to power"
+  },
+  {
+    "name": "regret",
+    "description": "Quotes related to regret"
+  },
+  {
+    "name": "honor",
+    "description": "Quotes related to honor"
+  },
+  {
+    "name": "swordsman",
+    "description": "Quotes related to swordsman"
+  },
+  {
+    "name": "courage",
+    "description": "Quotes related to courage"
+  },
+  {
+    "name": "stoic",
+    "description": "Quotes related to stoic"
+  },
+  {
+    "name": "resilience",
+    "description": "Quotes related to resilience"
+  },
+  {
+    "name": "pride",
+    "description": "Quotes related to pride"
+  },
+  {
+    "name": "teamwork",
+    "description": "Quotes related to teamwork"
+  },
+  {
+    "name": "cooperation",
+    "description": "Quotes related to cooperation"
+  },
+  {
+    "name": "principles",
+    "description": "Quotes related to principles"
+  },
+  {
+    "name": "self-discovery",
+    "description": "Quotes related to self-discovery"
+  },
+  {
+    "name": "medicine",
+    "description": "Quotes related to medicine"
+  },
+  {
+    "name": "wisdom",
+    "description": "Quotes related to wisdom"
+  },
+  {
+    "name": "soul",
+    "description": "Quotes related to soul"
+  },
+  {
+    "name": "love",
+    "description": "Quotes related to love"
+  },
+  {
+    "name": "gratitude",
+    "description": "Quotes related to gratitude"
+  },
+  {
+    "name": "present",
+    "description": "Quotes related to present"
+  },
+  {
+    "name": "treasure",
+    "description": "Quotes related to treasure"
+  },
+  {
+    "name": "legacy",
+    "description": "Quotes related to legacy"
+  },
+  {
+    "name": "truth",
+    "description": "Quotes related to truth"
+  },
+  {
+    "name": "inspiration",
+    "description": "Quotes related to inspiration"
+  },
+  {
+    "name": "adventure",
+    "description": "Quotes related to adventure"
+  },
+  {
+    "name": "healing",
+    "description": "Quotes related to healing"
+  },
+  {
+    "name": "laughter",
+    "description": "Quotes related to laughter"
+  },
+  {
+    "name": "protection",
+    "description": "Quotes related to protection"
+  },
+  {
+    "name": "ambition",
+    "description": "Quotes related to ambition"
+  },
+  {
+    "name": "growth",
+    "description": "Quotes related to growth"
+  },
+  {
+    "name": "challenge",
+    "description": "Quotes related to challenge"
+  },
+  {
+    "name": "potential",
+    "description": "Quotes related to potential"
+  },
+  {
+    "name": "morality",
+    "description": "Quotes related to morality"
+  },
+  {
+    "name": "weakness",
+    "description": "Quotes related to weakness"
+  },
+  {
+    "name": "improvement",
+    "description": "Quotes related to improvement"
+  },
+  {
+    "name": "smile",
+    "description": "Quotes related to smile"
+  },
+  {
+    "name": "optimism",
+    "description": "Quotes related to optimism"
+  },
+  {
+    "name": "farewell",
+    "description": "Quotes related to farewell"
+  },
+  {
+    "name": "loneliness",
+    "description": "Quotes related to loneliness"
+  },
+  {
+    "name": "responsibility",
+    "description": "Quotes related to responsibility"
+  },
+  {
+    "name": "fighting",
+    "description": "Quotes related to fighting"
+  },
+  {
+    "name": "hero",
+    "description": "Quotes related to hero"
+  },
+  {
+    "name": "selfish",
+    "description": "Quotes related to selfish"
+  },
+  {
+    "name": "funny",
+    "description": "Quotes related to funny"
+  },
+  {
+    "name": "pain",
+    "description": "Quotes related to pain"
+  },
+  {
+    "name": "acceptance",
+    "description": "Quotes related to acceptance"
+  },
+  {
+    "name": "dignity",
+    "description": "Quotes related to dignity"
+  },
+  {
+    "name": "mystery",
+    "description": "Quotes related to mystery"
+  },
+  {
+    "name": "excitement",
+    "description": "Quotes related to excitement"
+  },
+  {
+    "name": "reliability",
+    "description": "Quotes related to reliability"
+  },
+  {
+    "name": "bones",
+    "description": "Quotes related to bones"
+  }
 ]
