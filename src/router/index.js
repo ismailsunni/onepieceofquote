@@ -66,7 +66,7 @@ const routes = [
     }
   },
   {
-    path: '/submit-quote',
+    path: '/submit',
     name: 'SubmitQuote',
     component: SubmitQuote,
     meta: {
