@@ -33,65 +33,6 @@
         </div>
       </section>
 
-      <!-- Features -->
-      <section class="quote-card">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-          Features
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-              </svg>
-              <h3 class="font-semibold text-gray-900 dark:text-gray-100">XKCD-Style Navigation</h3>
-            </div>
-            <p class="text-gray-600 dark:text-gray-400">
-              Navigate through quotes with Previous, Next, and Random buttons,
-              just like your favorite webcomic.
-            </p>
-          </div>
-
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-              </svg>
-              <h3 class="font-semibold text-gray-900 dark:text-gray-100">Powerful Search</h3>
-            </div>
-            <p class="text-gray-600 dark:text-gray-400">
-              Search across quotes, characters, and tags to find exactly
-              what you're looking for.
-            </p>
-          </div>
-
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-              </svg>
-              <h3 class="font-semibold text-gray-900 dark:text-gray-100">Organized by Tags</h3>
-            </div>
-            <p class="text-gray-600 dark:text-gray-400">
-              Quotes are categorized by themes like "dreams", "friendship",
-              and "determination" for easy discovery.
-            </p>
-          </div>
-
-          <div class="space-y-3">
-            <div class="flex items-center space-x-3">
-              <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
-              </svg>
-              <h3 class="font-semibold text-gray-900 dark:text-gray-100">Easy Sharing</h3>
-            </div>
-            <p class="text-gray-600 dark:text-gray-400">
-              Share your favorite quotes on social media or copy them
-              for personal use with one click.
-            </p>
-          </div>
-        </div>
-      </section>
 
       <!-- Data Sources -->
       <section class="quote-card">
@@ -121,36 +62,6 @@
         </div>
       </section>
 
-      <!-- Technical Information -->
-      <section class="quote-card">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-          Technical Information
-        </h2>
-        <div class="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
-          <p>
-            This website is built with modern web technologies to ensure a fast,
-            accessible experience across all devices:
-          </p>
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-            <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="font-semibold text-green-600 dark:text-green-400">Vue.js 3</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Frontend Framework</div>
-            </div>
-            <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="font-semibold text-blue-600 dark:text-blue-400">Tailwind CSS</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Styling</div>
-            </div>
-            <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="font-semibold text-purple-600 dark:text-purple-400">Vite</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Build Tool</div>
-            </div>
-            <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="font-semibold text-gray-600 dark:text-gray-400">GitHub Pages</div>
-              <div class="text-sm text-gray-600 dark:text-gray-400">Hosting</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <!-- Submit Quote -->
       <section class="quote-card bg-blue-50 dark:bg-blue-900 border-blue-200 dark:border-blue-700">
