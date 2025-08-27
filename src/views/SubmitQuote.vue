@@ -43,12 +43,10 @@
           title="Quote Submission Form"
           loading="lazy"
         >
-          <p class="p-4 text-center text-gray-600 dark:text-gray-300">
-            Your browser doesn't support iframes. 
-            <a :href="SUBMISSION_FORM_URL" target="_blank" class="text-blue-600 hover:underline">
-              Click here to open the form
-            </a>
-          </p>
+          Your browser doesn't support iframes. 
+          <a :href="SUBMISSION_FORM_URL" target="_blank" class="text-blue-600 hover:underline">
+            Click here to open the form
+          </a>
         </iframe>
       </div>
     </div>
