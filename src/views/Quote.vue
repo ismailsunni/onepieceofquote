@@ -77,7 +77,16 @@
               "{{ relatedQuote.quote }}"
             </blockquote>
             <div class="text-sm text-gray-600 dark:text-gray-400">
-              Chapter {{ relatedQuote.chapter }}
+              <a
+                :href="`https://onepiece.fandom.com/wiki/Chapter_${relatedQuote.chapter}`"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-2"
+                :title="`Read Chapter ${relatedQuote.chapter} on One Piece Fandom Wiki`"
+                @click.stop
+              >
+                Chapter {{ relatedQuote.chapter }}
+              </a>
             </div>
           </router-link>
         </div>

@@ -17,7 +17,15 @@
 
     <!-- Chapter Info -->
     <div class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-      Chapter {{ quote.chapter }}
+      <a
+        :href="`https://onepiece.fandom.com/wiki/Chapter_${quote.chapter}`"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-2"
+        :title="`Read Chapter ${quote.chapter} on One Piece Fandom Wiki`"
+      >
+        Chapter {{ quote.chapter }}
+      </a>
     </div>
 
     <!-- Description -->
